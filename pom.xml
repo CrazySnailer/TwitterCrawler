@@ -125,8 +125,27 @@
 		<version>2.7.7</version>
 	</dependency>
 	<!-- Hibernate library dependecy end -->
+	
+	
+ 
     
   </dependencies>
+  
+  
+ <repositories>
+   
+    <repository>
+        <id>jboss</id>
+        <url>http://repository.jboss.com/maven2/</url>
+    </repository>
+    
+    <repository>  
+        <id>java</id>  
+        <name>java official repository</name>  
+        <url>http://download.java.net/maven/2/</url>  
+    </repository> 
+    
+</repositories>
   
 
     
