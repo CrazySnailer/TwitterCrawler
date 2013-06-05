@@ -39,15 +39,16 @@
         <groupId>org.twitter4j</groupId>
         <artifactId>twitter4j-stream</artifactId>
         <version>3.0.3</version>
-    </dependency>
-    <dependency>
-        <groupId>org.twitter4j</groupId>
-        <artifactId>twitter4j-media-support</artifactId>
-        <version>3.0.3</version>
-    </dependency>    
+    </dependency>   
     <dependency>
     	<groupId>org.twitter4j</groupId>
     	<artifactId>twitter4j-core</artifactId>
+    	<version>3.0.3</version>
+    </dependency>
+    
+    <dependency>
+    	<groupId>org.twitter4j</groupId>
+    	<artifactId>twitter4j-media-support</artifactId>
     	<version>3.0.3</version>
     </dependency>
     
@@ -79,9 +80,57 @@
     	<version>2.5.6</version>
     	<scope>runtime</scope>
     </dependency>
+    <!-- Spring AOP dependency -->
+    <dependency>
+    	<groupId>cglib</groupId>
+    	<artifactId>cglib</artifactId>
+    	<version>3.0</version>
+    </dependency>
+  <!-- MySQL database driver -->
+  <dependency>
+    	<groupId>mysql</groupId>
+    	<artifactId>mysql-connector-java</artifactId>
+    	<version>5.1.25</version>
+    </dependency>
+    
+    	<!-- Hibernate framework -->
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate</artifactId>
+    <version>3.2.3.ga</version>
+</dependency>
+
+	<!-- Hibernate library dependecy start -->
+	<dependency>
+		<groupId>dom4j</groupId>
+		<artifactId>dom4j</artifactId>
+		<version>1.6.1</version>
+	</dependency>
+ 
+	<dependency>
+		<groupId>commons-logging</groupId>
+		<artifactId>commons-logging</artifactId>
+		<version>1.1.1</version>
+	</dependency>
+ 
+	<dependency>
+		<groupId>commons-collections</groupId>
+		<artifactId>commons-collections</artifactId>
+		<version>3.2.1</version>
+	</dependency>
+ 
+	<dependency>
+		<groupId>antlr</groupId>
+		<artifactId>antlr</artifactId>
+		<version>2.7.7</version>
+	</dependency>
+	<!-- Hibernate library dependecy end -->
+    
   </dependencies>
   
-  <!-- Spring AOP dependency -->
+
+    
+    <!-- Hibernate framework -->
 
   
 <build>
