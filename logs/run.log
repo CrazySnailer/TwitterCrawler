@@ -1,0 +1,1043 @@
+[INFO ][06-05 09:08:05][main][twitter4j.auth.AccessToken][70]
+twitter4j.properties
+[INFO ][06-05 09:08:05][main][twitter4j.auth.AccessToken][87]
+Invalid Twitter Properties
+[INFO ][06-05 09:08:32][main][twitter4j.auth.AccessToken][70]
+twitter4j.properties
+[INFO ][06-05 09:11:08][main][twitter4j.auth.AccessToken][70]
+twitter4j.properties
+[INFO ][06-05 09:15:39][main][twitter4j.auth.AccessToken][71]
+twitter4j.properties
+[INFO ][06-05 09:20:07][main][twitter4j.auth.AccessToken][72]
+twitter4j.properties
+[DEBUG][06-05 09:20:15][main][twitter4j.internal.http.HttpClientImpl][68]
+Request: 
+[DEBUG][06-05 09:20:15][main][twitter4j.internal.http.HttpClientImpl][76]
+POST http://api.twitter.com/oauth/request_token
+[DEBUG][06-05 09:20:15][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth base string: POST&http%3A%2F%2Fapi.twitter.com%2Foauth%2Frequest_token&oauth_consumer_key%3DPUrgpzGjVb8bBlj5THzzTw%26oauth_nonce%3D2747971103%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1370395215%26oauth_version%3D1.0
+[DEBUG][06-05 09:20:16][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth signature: 3cUwVNDLNikLdoJu/5uNuAGgpLk=
+[DEBUG][06-05 09:20:16][main][twitter4j.internal.http.HttpClientImpl][76]
+Authorization: *****************************************************************************************************************************************************************************************************************
+[DEBUG][06-05 09:20:16][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-URL: http://twitter4j.org/en/twitter4j-3.0.3.xml
+[DEBUG][06-05 09:20:16][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client: Twitter4J
+[DEBUG][06-05 09:20:16][main][twitter4j.internal.http.HttpClientImpl][68]
+Accept-Encoding: gzip
+[DEBUG][06-05 09:20:16][main][twitter4j.internal.http.HttpClientImpl][68]
+User-Agent: twitter4j http://twitter4j.org/ /3.0.3
+[DEBUG][06-05 09:20:16][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-Version: 3.0.3
+[DEBUG][06-05 09:20:16][main][twitter4j.internal.http.HttpClientImpl][76]
+Post Params: 
+[INFO ][06-05 09:21:07][main][twitter4j.auth.AccessToken][72]
+twitter4j.properties
+[DEBUG][06-05 09:21:07][main][twitter4j.internal.http.HttpClientImpl][68]
+Request: 
+[DEBUG][06-05 09:21:07][main][twitter4j.internal.http.HttpClientImpl][76]
+POST http://api.twitter.com/oauth/request_token
+[DEBUG][06-05 09:21:07][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth base string: POST&http%3A%2F%2Fapi.twitter.com%2Foauth%2Frequest_token&oauth_consumer_key%3DPUrgpzGjVb8bBlj5THzzTw%26oauth_nonce%3D1913399067%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1370395267%26oauth_version%3D1.0
+[DEBUG][06-05 09:21:07][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth signature: bAJu0cXsmH/oQZYqkQVKtJJB6qo=
+[DEBUG][06-05 09:21:07][main][twitter4j.internal.http.HttpClientImpl][76]
+Authorization: *****************************************************************************************************************************************************************************************************************
+[DEBUG][06-05 09:21:07][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-URL: http://twitter4j.org/en/twitter4j-3.0.3.xml
+[DEBUG][06-05 09:21:07][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client: Twitter4J
+[DEBUG][06-05 09:21:07][main][twitter4j.internal.http.HttpClientImpl][68]
+Accept-Encoding: gzip
+[DEBUG][06-05 09:21:07][main][twitter4j.internal.http.HttpClientImpl][68]
+User-Agent: twitter4j http://twitter4j.org/ /3.0.3
+[DEBUG][06-05 09:21:07][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-Version: 3.0.3
+[DEBUG][06-05 09:21:07][main][twitter4j.internal.http.HttpClientImpl][76]
+Post Params: 
+[INFO ][06-05 09:21:28][main][twitter4j.auth.AccessToken][175]
+Failed to get accessToken: connect timed out
+[INFO ][06-05 09:22:59][main][twitter4j.auth.AccessToken][72]
+twitter4j.properties
+[DEBUG][06-05 09:22:59][main][twitter4j.internal.http.HttpClientImpl][68]
+Request: 
+[DEBUG][06-05 09:22:59][main][twitter4j.internal.http.HttpClientImpl][76]
+POST http://api.twitter.com/oauth/request_token
+[DEBUG][06-05 09:22:59][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth base string: POST&http%3A%2F%2Fapi.twitter.com%2Foauth%2Frequest_token&oauth_consumer_key%3DPUrgpzGjVb8bBlj5THzzTw%26oauth_nonce%3D1707047419%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1370395379%26oauth_version%3D1.0
+[DEBUG][06-05 09:22:59][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth signature: 3HTgpNDv+gjCXdNkhEufGwe/HT8=
+[DEBUG][06-05 09:22:59][main][twitter4j.internal.http.HttpClientImpl][76]
+Authorization: *******************************************************************************************************************************************************************************************************************
+[DEBUG][06-05 09:22:59][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-URL: http://twitter4j.org/en/twitter4j-3.0.3.xml
+[DEBUG][06-05 09:22:59][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client: Twitter4J
+[DEBUG][06-05 09:22:59][main][twitter4j.internal.http.HttpClientImpl][68]
+Accept-Encoding: gzip
+[DEBUG][06-05 09:22:59][main][twitter4j.internal.http.HttpClientImpl][68]
+User-Agent: twitter4j http://twitter4j.org/ /3.0.3
+[DEBUG][06-05 09:22:59][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-Version: 3.0.3
+[DEBUG][06-05 09:22:59][main][twitter4j.internal.http.HttpClientImpl][76]
+Post Params: 
+[INFO ][06-05 09:23:11][main][twitter4j.auth.AccessToken][72]
+twitter4j.properties
+[DEBUG][06-05 09:23:43][main][twitter4j.internal.http.HttpClientImpl][68]
+Request: 
+[DEBUG][06-05 09:23:43][main][twitter4j.internal.http.HttpClientImpl][76]
+POST http://api.twitter.com/oauth/request_token
+[DEBUG][06-05 09:23:43][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth base string: POST&http%3A%2F%2Fapi.twitter.com%2Foauth%2Frequest_token&oauth_consumer_key%3DPUrgpzGjVb8bBlj5THzzTw%26oauth_nonce%3D-227316863%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1370395423%26oauth_version%3D1.0
+[DEBUG][06-05 09:23:43][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth signature: 5nzhAYqSUV6RxKyUiArf2nv+LTU=
+[DEBUG][06-05 09:23:43][main][twitter4j.internal.http.HttpClientImpl][76]
+Authorization: *****************************************************************************************************************************************************************************************************************
+[DEBUG][06-05 09:23:43][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-URL: http://twitter4j.org/en/twitter4j-3.0.3.xml
+[DEBUG][06-05 09:23:43][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client: Twitter4J
+[DEBUG][06-05 09:23:43][main][twitter4j.internal.http.HttpClientImpl][68]
+Accept-Encoding: gzip
+[DEBUG][06-05 09:23:43][main][twitter4j.internal.http.HttpClientImpl][68]
+User-Agent: twitter4j http://twitter4j.org/ /3.0.3
+[DEBUG][06-05 09:23:43][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-Version: 3.0.3
+[DEBUG][06-05 09:23:43][main][twitter4j.internal.http.HttpClientImpl][76]
+Post Params: 
+[INFO ][06-05 09:24:07][main][twitter4j.auth.AccessToken][175]
+Failed to get accessToken: connect timed out
+[INFO ][06-05 09:32:54][main][twitter4j.auth.AccessToken][72]
+twitter4j.properties
+[INFO ][06-05 09:33:12][main][twitter4j.auth.AccessToken][72]
+twitter4j.properties
+[INFO ][06-05 09:33:38][main][twitter4j.auth.AccessToken][72]
+twitter4j.properties
+[INFO ][06-05 09:34:37][main][twitter4j.auth.AccessToken][72]
+twitter4j.properties
+[DEBUG][06-05 09:34:40][main][twitter4j.internal.http.HttpClientImpl][68]
+Opening proxied connection(127.0.0.1:8087)
+[DEBUG][06-05 09:34:40][main][twitter4j.internal.http.HttpClientImpl][68]
+Request: 
+[DEBUG][06-05 09:34:40][main][twitter4j.internal.http.HttpClientImpl][76]
+POST http://api.twitter.com/oauth/request_token
+[DEBUG][06-05 09:34:40][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth base string: POST&http%3A%2F%2Fapi.twitter.com%2Foauth%2Frequest_token&oauth_consumer_key%3DPUrgpzGjVb8bBlj5THzzTw%26oauth_nonce%3D94491124%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1370396080%26oauth_version%3D1.0
+[DEBUG][06-05 09:34:41][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth signature: +Ul2ngA/7FL2aP5bUFZ5mCwUs5c=
+[DEBUG][06-05 09:34:41][main][twitter4j.internal.http.HttpClientImpl][76]
+Authorization: *****************************************************************************************************************************************************************************************************************
+[DEBUG][06-05 09:34:41][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-URL: http://twitter4j.org/en/twitter4j-3.0.3.xml
+[DEBUG][06-05 09:34:41][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client: Twitter4J
+[DEBUG][06-05 09:34:41][main][twitter4j.internal.http.HttpClientImpl][68]
+Accept-Encoding: gzip
+[DEBUG][06-05 09:34:41][main][twitter4j.internal.http.HttpClientImpl][68]
+User-Agent: twitter4j http://twitter4j.org/ /3.0.3
+[DEBUG][06-05 09:34:41][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-Version: 3.0.3
+[DEBUG][06-05 09:34:41][main][twitter4j.internal.http.HttpClientImpl][76]
+Post Params: 
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+Response: 
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+HTTP/1.1 200
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Runtime: 0.01452
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Ua-Compatible: IE=9,chrome=1
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Length: 150
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Transaction: c2e4e06716d9c0e5
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+Expires: Tue, 31 Mar 1981 05:00:00 GMT
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+Last-Modified: Wed, 05 Jun 2013 01:34:44 GMT
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+Etag: "5da740df1fb63681d993928ed6fcff53"
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: guest_id=v1%3A137039608488437207; Domain=.twitter.com; Path=/; Expires=Fri, 05-Jun-2015 01:34:44 UTC
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: _twitter_sess=BAh7BzoHaWQiJTZhMTJmMmEyOTEwMGRlYWNhZDQ2Y2ZiNzI3OTZlNDY2Og9j%250AcmVhdGVkX2F0bCsIxsr4ET8B--e1f49928aa99a2f3b4c7790baea9a58587004090; domain=.twitter.com; path=/; HttpOnly
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+Server: tfe
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+Cache-Control: no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+Pragma: no-cache
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Mid: 1d46db091b48c4256f436a4b90cb107278a8bac0
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+Status: 200 OK
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Xss-Protection: 1; mode=block
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Frame-Options: SAMEORIGIN
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+Date: Wed, 05 Jun 2013 01:34:44 GMT
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+Vary: Accept-Encoding
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Encoding: gzip
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+Via: HTTP/1.1 GWA
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Type: text/html; charset=utf-8
+[DEBUG][06-05 09:34:42][main][twitter4j.internal.http.HttpResponseImpl][68]
+oauth_token=mGWyadaqfh4rg5KAhgSaF7fjqxGnQIq0ObLiGwmXNg&oauth_token_secret=koulKooCe2uXUHEoq63MykzoQTCEvVbpF1251tqKb3U&oauth_callback_confirmed=true
+
+[INFO ][06-05 09:34:45][main][twitter4j.auth.AccessToken][118]
+Got request token.
+[INFO ][06-05 09:34:47][main][twitter4j.auth.AccessToken][119]
+Request token: mGWyadaqfh4rg5KAhgSaF7fjqxGnQIq0ObLiGwmXNg
+[INFO ][06-05 09:34:48][main][twitter4j.auth.AccessToken][120]
+Request token secret: koulKooCe2uXUHEoq63MykzoQTCEvVbpF1251tqKb3U
+[INFO ][06-05 09:34:53][main][twitter4j.auth.AccessToken][125]
+Open the following URL and grant access to your account:
+[INFO ][06-05 09:34:55][main][twitter4j.auth.AccessToken][126]
+http://api.twitter.com/oauth/authorize?oauth_token=mGWyadaqfh4rg5KAhgSaF7fjqxGnQIq0ObLiGwmXNg
+[INFO ][06-05 09:36:15][main][twitter4j.auth.AccessToken][72]
+twitter4j.properties
+[DEBUG][06-05 09:36:15][main][twitter4j.internal.http.HttpClientImpl][68]
+Opening proxied connection(127.0.0.1:8087)
+[DEBUG][06-05 09:36:15][main][twitter4j.internal.http.HttpClientImpl][68]
+Request: 
+[DEBUG][06-05 09:36:15][main][twitter4j.internal.http.HttpClientImpl][76]
+POST http://api.twitter.com/oauth/request_token
+[DEBUG][06-05 09:36:15][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth base string: POST&http%3A%2F%2Fapi.twitter.com%2Foauth%2Frequest_token&oauth_consumer_key%3DPUrgpzGjVb8bBlj5THzzTw%26oauth_nonce%3D1329115506%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1370396175%26oauth_version%3D1.0
+[DEBUG][06-05 09:36:15][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth signature: iZFCm6YFobIPFOEl1XdzF4Ofq2s=
+[DEBUG][06-05 09:36:15][main][twitter4j.internal.http.HttpClientImpl][76]
+Authorization: ***************************************************************************************************************************************************************************************************************
+[DEBUG][06-05 09:36:15][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-URL: http://twitter4j.org/en/twitter4j-3.0.3.xml
+[DEBUG][06-05 09:36:15][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client: Twitter4J
+[DEBUG][06-05 09:36:15][main][twitter4j.internal.http.HttpClientImpl][68]
+Accept-Encoding: gzip
+[DEBUG][06-05 09:36:15][main][twitter4j.internal.http.HttpClientImpl][68]
+User-Agent: twitter4j http://twitter4j.org/ /3.0.3
+[DEBUG][06-05 09:36:15][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-Version: 3.0.3
+[DEBUG][06-05 09:36:15][main][twitter4j.internal.http.HttpClientImpl][76]
+Post Params: 
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+Response: 
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+HTTP/1.1 200
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Runtime: 0.01403
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Ua-Compatible: IE=9,chrome=1
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Length: 148
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Transaction: bb1b2afd080da0c3
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+Expires: Tue, 31 Mar 1981 05:00:00 GMT
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+Last-Modified: Wed, 05 Jun 2013 01:36:18 GMT
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+Etag: "810811408622ac50f838a3ca3103414b"
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: guest_id=v1%3A137039617860444058; Domain=.twitter.com; Path=/; Expires=Fri, 05-Jun-2015 01:36:18 UTC
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: _twitter_sess=BAh7BzoHaWQiJTE2MjcxODQwNGYwMTZiMmE3ZTU1ZTEyMzlkODAxZGZmOg9j%250AcmVhdGVkX2F0bCsI2zj6ET8B--a288c5b8df2b06708ba8c61ba968603c0a517064; domain=.twitter.com; path=/; HttpOnly
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+Server: tfe
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+Cache-Control: no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+Pragma: no-cache
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Mid: 1939663fba7caf5df09fe859553913ebb2f606ee
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+Status: 200 OK
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Xss-Protection: 1; mode=block
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Frame-Options: SAMEORIGIN
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+Date: Wed, 05 Jun 2013 01:36:18 GMT
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+Vary: Accept-Encoding
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Encoding: gzip
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+Via: HTTP/1.1 GWA
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Type: text/html; charset=utf-8
+[DEBUG][06-05 09:36:16][main][twitter4j.internal.http.HttpResponseImpl][68]
+oauth_token=86hYsEfVQHYmWW1413P9afN2oy6Wusk8Xk96YcWLc&oauth_token_secret=jeEvE5DEMNEKEsG0EV2reekrALNfdgyrZhJBioEdkJQ&oauth_callback_confirmed=true
+
+[INFO ][06-05 09:36:16][main][twitter4j.auth.AccessToken][118]
+Got request token.
+[INFO ][06-05 09:36:16][main][twitter4j.auth.AccessToken][119]
+Request token: 86hYsEfVQHYmWW1413P9afN2oy6Wusk8Xk96YcWLc
+[INFO ][06-05 09:36:16][main][twitter4j.auth.AccessToken][120]
+Request token secret: jeEvE5DEMNEKEsG0EV2reekrALNfdgyrZhJBioEdkJQ
+[INFO ][06-05 09:36:16][main][twitter4j.auth.AccessToken][125]
+Open the following URL and grant access to your account:
+[INFO ][06-05 09:36:16][main][twitter4j.auth.AccessToken][126]
+http://api.twitter.com/oauth/authorize?oauth_token=86hYsEfVQHYmWW1413P9afN2oy6Wusk8Xk96YcWLc
+[INFO ][06-05 09:36:16][main][twitter4j.auth.AccessToken][134]
+Enter the PIN(if available) and hit enter after you granted access.[PIN]:
+[DEBUG][06-05 09:36:47][main][twitter4j.internal.http.HttpClientImpl][68]
+Opening proxied connection(127.0.0.1:8087)
+[DEBUG][06-05 09:36:47][main][twitter4j.internal.http.HttpClientImpl][68]
+Request: 
+[DEBUG][06-05 09:36:47][main][twitter4j.internal.http.HttpClientImpl][76]
+POST http://api.twitter.com/oauth/access_token
+[DEBUG][06-05 09:36:47][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth base string: POST&http%3A%2F%2Fapi.twitter.com%2Foauth%2Faccess_token&oauth_consumer_key%3DPUrgpzGjVb8bBlj5THzzTw%26oauth_nonce%3D-192366469%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1370396207%26oauth_token%3D86hYsEfVQHYmWW1413P9afN2oy6Wusk8Xk96YcWLc%26oauth_verifier%3D77703754%26oauth_version%3D1.0
+[DEBUG][06-05 09:36:47][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth signature: OmwwPfgT/uKcp72oFAXtKdcuCU4=
+[DEBUG][06-05 09:36:47][main][twitter4j.internal.http.HttpClientImpl][76]
+Authorization: *************************************************************************************************************************************************************************************************************************************************************************
+[DEBUG][06-05 09:36:47][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-URL: http://twitter4j.org/en/twitter4j-3.0.3.xml
+[DEBUG][06-05 09:36:47][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client: Twitter4J
+[DEBUG][06-05 09:36:47][main][twitter4j.internal.http.HttpClientImpl][68]
+Accept-Encoding: gzip
+[DEBUG][06-05 09:36:47][main][twitter4j.internal.http.HttpClientImpl][68]
+User-Agent: twitter4j http://twitter4j.org/ /3.0.3
+[DEBUG][06-05 09:36:47][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-Version: 3.0.3
+[DEBUG][06-05 09:36:47][main][twitter4j.internal.http.HttpClientImpl][76]
+Post Params: oauth_verifier=77703754
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+Response: 
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+HTTP/1.1 401
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Ua-Compatible: IE=9,chrome=1
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Length: 137
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Transaction: b611adda998a3a66
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+Expires: Tue, 31 Mar 1981 05:00:00 GMT
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+Last-Modified: Wed, 05 Jun 2013 01:36:51 GMT
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: guest_id=v1%3A137039621134196718; Domain=.twitter.com; Path=/; Expires=Fri, 05-Jun-2015 01:36:51 UTC
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: _twitter_sess=BAh7CCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7ADoHaWQiJWU0ODY2MDczMmIwNTEwZmQ4YWJiNDNk%250AMmQwNzEzNTRkOg9jcmVhdGVkX2F0bCsI6bj6ET8B--69bdb59bd20ad56f4fb1fd5f6b82750f979a96e3; domain=.twitter.com; path=/; HttpOnly
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+Server: tfe
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+Cache-Control: no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+Pragma: no-cache
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Mid: eaa9f570c28bba2a980c460d8645aabeedb52fef
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+Status: 401 Unauthorized
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Xss-Protection: 1; mode=block
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Frame-Options: SAMEORIGIN
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+Date: Wed, 05 Jun 2013 01:36:51 GMT
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+Vary: Accept-Encoding
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+Www-Authenticate: OAuth realm="http://api.twitter.com"
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Encoding: gzip
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+Via: HTTP/1.1 GWA
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Type: text/html; charset=utf-8
+[DEBUG][06-05 09:36:48][main][twitter4j.internal.http.HttpResponseImpl][68]
+<?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <error>Invalid oauth_verifier parameter</error>
+  <request>/oauth/access_token</request>
+</hash>
+
+[INFO ][06-05 09:36:48][main][twitter4j.auth.AccessToken][144]
+Unable to get the access token.
+[INFO ][06-05 09:36:48][main][twitter4j.auth.AccessToken][125]
+Open the following URL and grant access to your account:
+[INFO ][06-05 09:36:48][main][twitter4j.auth.AccessToken][126]
+http://api.twitter.com/oauth/authorize?oauth_token=86hYsEfVQHYmWW1413P9afN2oy6Wusk8Xk96YcWLc
+[INFO ][06-05 09:36:48][main][twitter4j.auth.AccessToken][134]
+Enter the PIN(if available) and hit enter after you granted access.[PIN]:
+[INFO ][06-05 09:43:54][main][twitter4j.auth.AccessToken][72]
+twitter4j-1.properties
+[DEBUG][06-05 09:43:54][main][twitter4j.internal.http.HttpClientImpl][68]
+Opening proxied connection(127.0.0.1:8087)
+[DEBUG][06-05 09:43:54][main][twitter4j.internal.http.HttpClientImpl][68]
+Request: 
+[DEBUG][06-05 09:43:54][main][twitter4j.internal.http.HttpClientImpl][76]
+POST http://api.twitter.com/oauth/request_token
+[DEBUG][06-05 09:43:54][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth base string: POST&http%3A%2F%2Fapi.twitter.com%2Foauth%2Frequest_token&oauth_consumer_key%3DxNXZvFmjKWqVmNPvYFxWg%26oauth_nonce%3D483612272%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1370396634%26oauth_version%3D1.0
+[DEBUG][06-05 09:43:54][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth signature: 2qilY4zy8NTSTmjMN9qc+pfLrhY=
+[DEBUG][06-05 09:43:54][main][twitter4j.internal.http.HttpClientImpl][76]
+Authorization: ***************************************************************************************************************************************************************************************************************
+[DEBUG][06-05 09:43:54][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-URL: http://twitter4j.org/en/twitter4j-3.0.3.xml
+[DEBUG][06-05 09:43:54][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client: Twitter4J
+[DEBUG][06-05 09:43:54][main][twitter4j.internal.http.HttpClientImpl][68]
+Accept-Encoding: gzip
+[DEBUG][06-05 09:43:54][main][twitter4j.internal.http.HttpClientImpl][68]
+User-Agent: twitter4j http://twitter4j.org/ /3.0.3
+[DEBUG][06-05 09:43:54][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-Version: 3.0.3
+[DEBUG][06-05 09:43:54][main][twitter4j.internal.http.HttpClientImpl][76]
+Post Params: 
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+Response: 
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+HTTP/1.1 200
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Runtime: 0.01421
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Ua-Compatible: IE=9,chrome=1
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Length: 148
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Transaction: 32bc834469665aef
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+Expires: Tue, 31 Mar 1981 05:00:00 GMT
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+Last-Modified: Wed, 05 Jun 2013 01:43:58 GMT
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+Etag: "ff8a508b3f21d70bcfeede78f9f85a39"
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: guest_id=v1%3A137039663837294213; Domain=.twitter.com; Path=/; Expires=Fri, 05-Jun-2015 01:43:58 UTC
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: _twitter_sess=BAh7BzoHaWQiJTFjNTM2YzFhZjA4NDM1MDQ0YTZkMGZlNzQ4YTQ5ZDEwOg9j%250AcmVhdGVkX2F0bCsIGz0BEj8B--ee9398c1a31955f452d3bfa90b72322955355631; domain=.twitter.com; path=/; HttpOnly
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+Server: tfe
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+Cache-Control: no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+Pragma: no-cache
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Mid: 2668c3597a121fc897c8fb44a935a7e0cfab8fa5
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+Status: 200 OK
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Xss-Protection: 1; mode=block
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Frame-Options: SAMEORIGIN
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+Date: Wed, 05 Jun 2013 01:43:58 GMT
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+Vary: Accept-Encoding
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Encoding: gzip
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+Via: HTTP/1.1 GWA
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Type: text/html; charset=utf-8
+[DEBUG][06-05 09:43:55][main][twitter4j.internal.http.HttpResponseImpl][68]
+oauth_token=qtF8UjkTCYyRSg5JlnyUnLpYE16LBcxOQqQihdl7IJg&oauth_token_secret=AQlMChuKRRopHIfYwbjVRSVfMVJIVBWiRdn4YOuo&oauth_callback_confirmed=true
+
+[INFO ][06-05 09:43:55][main][twitter4j.auth.AccessToken][118]
+Got request token.
+[INFO ][06-05 09:43:55][main][twitter4j.auth.AccessToken][119]
+Request token: qtF8UjkTCYyRSg5JlnyUnLpYE16LBcxOQqQihdl7IJg
+[INFO ][06-05 09:43:55][main][twitter4j.auth.AccessToken][120]
+Request token secret: AQlMChuKRRopHIfYwbjVRSVfMVJIVBWiRdn4YOuo
+[INFO ][06-05 09:43:55][main][twitter4j.auth.AccessToken][125]
+Open the following URL and grant access to your account:
+[INFO ][06-05 09:43:55][main][twitter4j.auth.AccessToken][126]
+http://api.twitter.com/oauth/authorize?oauth_token=qtF8UjkTCYyRSg5JlnyUnLpYE16LBcxOQqQihdl7IJg
+[INFO ][06-05 09:43:55][main][twitter4j.auth.AccessToken][134]
+Enter the PIN(if available) and hit enter after you granted access.[PIN]:
+[DEBUG][06-05 09:44:20][main][twitter4j.internal.http.HttpClientImpl][68]
+Opening proxied connection(127.0.0.1:8087)
+[DEBUG][06-05 09:44:20][main][twitter4j.internal.http.HttpClientImpl][68]
+Request: 
+[DEBUG][06-05 09:44:20][main][twitter4j.internal.http.HttpClientImpl][76]
+POST http://api.twitter.com/oauth/access_token
+[DEBUG][06-05 09:44:20][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth base string: POST&http%3A%2F%2Fapi.twitter.com%2Foauth%2Faccess_token&oauth_consumer_key%3DxNXZvFmjKWqVmNPvYFxWg%26oauth_nonce%3D3374293569%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1370396660%26oauth_token%3DqtF8UjkTCYyRSg5JlnyUnLpYE16LBcxOQqQihdl7IJg%26oauth_verifier%3D9747304%26oauth_version%3D1.0
+[DEBUG][06-05 09:44:20][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth signature: gvCbLK8P4JVILNhR5CFzS/YbJXY=
+[DEBUG][06-05 09:44:20][main][twitter4j.internal.http.HttpClientImpl][76]
+Authorization: **************************************************************************************************************************************************************************************************************************************************************************
+[DEBUG][06-05 09:44:20][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-URL: http://twitter4j.org/en/twitter4j-3.0.3.xml
+[DEBUG][06-05 09:44:20][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client: Twitter4J
+[DEBUG][06-05 09:44:20][main][twitter4j.internal.http.HttpClientImpl][68]
+Accept-Encoding: gzip
+[DEBUG][06-05 09:44:20][main][twitter4j.internal.http.HttpClientImpl][68]
+User-Agent: twitter4j http://twitter4j.org/ /3.0.3
+[DEBUG][06-05 09:44:20][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-Version: 3.0.3
+[DEBUG][06-05 09:44:20][main][twitter4j.internal.http.HttpClientImpl][76]
+Post Params: oauth_verifier=9747304
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+Response: 
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+HTTP/1.1 200
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Runtime: 0.03573
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Ua-Compatible: IE=9,chrome=1
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Length: 161
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Transaction: 49e0fd4c3ad26ee5
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+Expires: Tue, 31 Mar 1981 05:00:00 GMT
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+Last-Modified: Wed, 05 Jun 2013 01:44:24 GMT
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+Etag: "d7701e57b3b506de4f28ce44ef9116a7"
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: guest_id=v1%3A137039666427265694; Domain=.twitter.com; Path=/; Expires=Fri, 05-Jun-2015 01:44:24 UTC
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: _twitter_sess=BAh7BzoHaWQiJTg4OTAzZDQ5M2VmMWJiMDBlMmQxMDg5MDVlMzU3Mzc0Og9j%250AcmVhdGVkX2F0bCsIAaIBEj8B--1111ac07637cbff2d93563f2eb93edf5ffcfae35; domain=.twitter.com; path=/; HttpOnly
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+Server: tfe
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+Cache-Control: no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+Pragma: no-cache
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Mid: 3238d9b888c7b618534041a2a22176a735fb13ad
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+Status: 200 OK
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Xss-Protection: 1; mode=block
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Frame-Options: SAMEORIGIN
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+Date: Wed, 05 Jun 2013 01:44:24 GMT
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+Vary: Accept-Encoding
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Encoding: gzip
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+Via: HTTP/1.1 GWA
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Type: text/html; charset=utf-8
+[DEBUG][06-05 09:44:21][main][twitter4j.internal.http.HttpResponseImpl][68]
+oauth_token=393264915-VzBAlaya5hNjQl77XrLx8DzAAqoKcrtmuWOjm3s&oauth_token_secret=o72wNF7f3kegPn8UvENuBkRGeERNI2CrPw4B9Udlw&user_id=393264915&screen_name=spidershen
+
+[INFO ][06-05 09:44:21][main][twitter4j.auth.AccessToken][150]
+Got access token.
+[INFO ][06-05 09:44:21][main][twitter4j.auth.AccessToken][151]
+Access token: 393264915-VzBAlaya5hNjQl77XrLx8DzAAqoKcrtmuWOjm3s
+[INFO ][06-05 09:44:21][main][twitter4j.auth.AccessToken][152]
+Access token secret: o72wNF7f3kegPn8UvENuBkRGeERNI2CrPw4B9Udlw
+[INFO ][06-05 09:44:21][main][twitter4j.auth.AccessToken][171]
+Successfully stored access token to D:\Java Programe\TwitterCrawler\config\twitterKey\twitter4j-1.properties.
+[INFO ][06-05 09:54:11][main][twitter4j.auth.AccessToken][72]
+twitter4j-2.properties
+[DEBUG][06-05 09:54:11][main][twitter4j.internal.http.HttpClientImpl][68]
+Opening proxied connection(127.0.0.1:8087)
+[DEBUG][06-05 09:54:11][main][twitter4j.internal.http.HttpClientImpl][68]
+Request: 
+[DEBUG][06-05 09:54:11][main][twitter4j.internal.http.HttpClientImpl][76]
+POST http://api.twitter.com/oauth/request_token
+[DEBUG][06-05 09:54:11][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth base string: POST&http%3A%2F%2Fapi.twitter.com%2Foauth%2Frequest_token&oauth_consumer_key%3Dt0oj2u5MKCwmZNdnuJCRg%26oauth_nonce%3D816896230%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1370397251%26oauth_version%3D1.0
+[DEBUG][06-05 09:54:11][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth signature: 5bwDKnZavVqREmJPGPwYoX5/76Y=
+[DEBUG][06-05 09:54:11][main][twitter4j.internal.http.HttpClientImpl][76]
+Authorization: ***************************************************************************************************************************************************************************************************************
+[DEBUG][06-05 09:54:11][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-URL: http://twitter4j.org/en/twitter4j-3.0.3.xml
+[DEBUG][06-05 09:54:11][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client: Twitter4J
+[DEBUG][06-05 09:54:11][main][twitter4j.internal.http.HttpClientImpl][68]
+Accept-Encoding: gzip
+[DEBUG][06-05 09:54:11][main][twitter4j.internal.http.HttpClientImpl][68]
+User-Agent: twitter4j http://twitter4j.org/ /3.0.3
+[DEBUG][06-05 09:54:11][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-Version: 3.0.3
+[DEBUG][06-05 09:54:11][main][twitter4j.internal.http.HttpClientImpl][76]
+Post Params: 
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+Response: 
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+HTTP/1.1 200
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Runtime: 0.01462
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Ua-Compatible: IE=9,chrome=1
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Length: 148
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Transaction: 21d3a5d9e195a2ef
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+Expires: Tue, 31 Mar 1981 05:00:00 GMT
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+Last-Modified: Wed, 05 Jun 2013 01:54:14 GMT
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+Etag: "59560bdb92d6628de8afe373428e4e77"
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: guest_id=v1%3A137039725466667739; Domain=.twitter.com; Path=/; Expires=Fri, 05-Jun-2015 01:54:14 UTC
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: _twitter_sess=BAh7BzoHaWQiJTdmOWQ5NjgwNjk1MzcxMWQ0MWVkMjgyYTdlOGQ2YTBkOg9j%250AcmVhdGVkX2F0bCsIk6QKEj8B--f71ce0afb517598e84ccd7cde520f6d234152f4d; domain=.twitter.com; path=/; HttpOnly
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+Server: tfe
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+Cache-Control: no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+Pragma: no-cache
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Mid: 834ad09f849e838de742122e44df43d2646fb590
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+Status: 200 OK
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Xss-Protection: 1; mode=block
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Frame-Options: SAMEORIGIN
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+Date: Wed, 05 Jun 2013 01:54:14 GMT
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+Vary: Accept-Encoding
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Encoding: gzip
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+Via: HTTP/1.1 GWA
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Type: text/html; charset=utf-8
+[DEBUG][06-05 09:54:12][main][twitter4j.internal.http.HttpResponseImpl][68]
+oauth_token=9NuxvRU33dbs8DjD9luaS8F2VWJUtrFOE1fvzln8&oauth_token_secret=a6ZpLqHHgqhiBGLdUg2qsEIJvn0VcKaRgRCEaobQ&oauth_callback_confirmed=true
+
+[INFO ][06-05 09:54:12][main][twitter4j.auth.AccessToken][118]
+Got request token.
+[INFO ][06-05 09:54:12][main][twitter4j.auth.AccessToken][119]
+Request token: 9NuxvRU33dbs8DjD9luaS8F2VWJUtrFOE1fvzln8
+[INFO ][06-05 09:54:12][main][twitter4j.auth.AccessToken][120]
+Request token secret: a6ZpLqHHgqhiBGLdUg2qsEIJvn0VcKaRgRCEaobQ
+[INFO ][06-05 09:54:12][main][twitter4j.auth.AccessToken][125]
+Open the following URL and grant access to your account:
+[INFO ][06-05 09:54:12][main][twitter4j.auth.AccessToken][126]
+http://api.twitter.com/oauth/authorize?oauth_token=9NuxvRU33dbs8DjD9luaS8F2VWJUtrFOE1fvzln8
+[INFO ][06-05 09:54:12][main][twitter4j.auth.AccessToken][134]
+Enter the PIN(if available) and hit enter after you granted access.[PIN]:
+[DEBUG][06-05 09:54:37][main][twitter4j.internal.http.HttpClientImpl][68]
+Opening proxied connection(127.0.0.1:8087)
+[DEBUG][06-05 09:54:37][main][twitter4j.internal.http.HttpClientImpl][68]
+Request: 
+[DEBUG][06-05 09:54:37][main][twitter4j.internal.http.HttpClientImpl][76]
+POST http://api.twitter.com/oauth/access_token
+[DEBUG][06-05 09:54:37][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth base string: POST&http%3A%2F%2Fapi.twitter.com%2Foauth%2Faccess_token&oauth_consumer_key%3Dt0oj2u5MKCwmZNdnuJCRg%26oauth_nonce%3D102365849%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1370397277%26oauth_token%3D9NuxvRU33dbs8DjD9luaS8F2VWJUtrFOE1fvzln8%26oauth_verifier%3D9018920%26oauth_version%3D1.0
+[DEBUG][06-05 09:54:37][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth signature: fklpDomvlSuJZ/GMVkVDjgorIqY=
+[DEBUG][06-05 09:54:37][main][twitter4j.internal.http.HttpClientImpl][76]
+Authorization: **********************************************************************************************************************************************************************************************************************************************************************
+[DEBUG][06-05 09:54:37][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-URL: http://twitter4j.org/en/twitter4j-3.0.3.xml
+[DEBUG][06-05 09:54:37][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client: Twitter4J
+[DEBUG][06-05 09:54:37][main][twitter4j.internal.http.HttpClientImpl][68]
+Accept-Encoding: gzip
+[DEBUG][06-05 09:54:37][main][twitter4j.internal.http.HttpClientImpl][68]
+User-Agent: twitter4j http://twitter4j.org/ /3.0.3
+[DEBUG][06-05 09:54:37][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-Version: 3.0.3
+[DEBUG][06-05 09:54:37][main][twitter4j.internal.http.HttpClientImpl][76]
+Post Params: oauth_verifier=9018920
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+Response: 
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+HTTP/1.1 200
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Runtime: 0.05617
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Ua-Compatible: IE=9,chrome=1
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Length: 165
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Transaction: f1ba2d6018c587a6
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+Expires: Tue, 31 Mar 1981 05:00:00 GMT
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+Last-Modified: Wed, 05 Jun 2013 01:54:41 GMT
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+Etag: "5a366cde199bdf8168984334fcb60955"
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: guest_id=v1%3A137039728094951825; Domain=.twitter.com; Path=/; Expires=Fri, 05-Jun-2015 01:54:41 UTC
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: _twitter_sess=BAh7BzoHaWQiJTc4YjVkODQ3NmQyYjU1YTM0OGM4OWY4NmFhZDhkNzI4Og9j%250AcmVhdGVkX2F0bCsI9AoLEj8B--5977ccfba54cad78cca06cf41812227c20525fb7; domain=.twitter.com; path=/; HttpOnly
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+Server: tfe
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+Cache-Control: no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+Pragma: no-cache
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Mid: 7a529c3e502b8d96687069ae63492d69d7779d91
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+Status: 200 OK
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Xss-Protection: 1; mode=block
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Frame-Options: SAMEORIGIN
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+Date: Wed, 05 Jun 2013 01:54:41 GMT
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+Vary: Accept-Encoding
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Encoding: gzip
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+Via: HTTP/1.1 GWA
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Type: text/html; charset=utf-8
+[DEBUG][06-05 09:54:38][main][twitter4j.internal.http.HttpResponseImpl][68]
+oauth_token=393264915-hboeKuh74PGDX7nQkAYrSSNWeYIFTrOWXmSHGlTg&oauth_token_secret=EnWCNhBA7MJgyoAKi5ywm35FVEmoB0yav0k1lYRf0HU&user_id=393264915&screen_name=spidershen
+
+[INFO ][06-05 09:54:38][main][twitter4j.auth.AccessToken][150]
+Got access token.
+[INFO ][06-05 09:54:38][main][twitter4j.auth.AccessToken][151]
+Access token: 393264915-hboeKuh74PGDX7nQkAYrSSNWeYIFTrOWXmSHGlTg
+[INFO ][06-05 09:54:38][main][twitter4j.auth.AccessToken][152]
+Access token secret: EnWCNhBA7MJgyoAKi5ywm35FVEmoB0yav0k1lYRf0HU
+[INFO ][06-05 09:54:38][main][twitter4j.auth.AccessToken][171]
+Successfully stored access token to D:\Java Programe\TwitterCrawler\config\twitterKey\twitter4j-2.properties.
+[INFO ][06-05 09:55:36][main][twitter4j.auth.AccessToken][72]
+twitter4j-3.properties
+[DEBUG][06-05 09:55:36][main][twitter4j.internal.http.HttpClientImpl][68]
+Opening proxied connection(127.0.0.1:8087)
+[DEBUG][06-05 09:55:36][main][twitter4j.internal.http.HttpClientImpl][68]
+Request: 
+[DEBUG][06-05 09:55:36][main][twitter4j.internal.http.HttpClientImpl][76]
+POST http://api.twitter.com/oauth/request_token
+[DEBUG][06-05 09:55:36][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth base string: POST&http%3A%2F%2Fapi.twitter.com%2Foauth%2Frequest_token&oauth_consumer_key%3DRL1iuV5BalXDUFWLbejjVw%26oauth_nonce%3D256844943%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1370397336%26oauth_version%3D1.0
+[DEBUG][06-05 09:55:36][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth signature: VeslWdK0aB10GJlUFg9Ez6Jwiuo=
+[DEBUG][06-05 09:55:36][main][twitter4j.internal.http.HttpClientImpl][76]
+Authorization: **************************************************************************************************************************************************************************************************************
+[DEBUG][06-05 09:55:36][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-URL: http://twitter4j.org/en/twitter4j-3.0.3.xml
+[DEBUG][06-05 09:55:36][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client: Twitter4J
+[DEBUG][06-05 09:55:36][main][twitter4j.internal.http.HttpClientImpl][68]
+Accept-Encoding: gzip
+[DEBUG][06-05 09:55:36][main][twitter4j.internal.http.HttpClientImpl][68]
+User-Agent: twitter4j http://twitter4j.org/ /3.0.3
+[DEBUG][06-05 09:55:36][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-Version: 3.0.3
+[DEBUG][06-05 09:55:36][main][twitter4j.internal.http.HttpClientImpl][76]
+Post Params: 
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+Response: 
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+HTTP/1.1 200
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Runtime: 0.02482
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Ua-Compatible: IE=9,chrome=1
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Length: 149
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Transaction: a410f3fbdbeaee2e
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+Expires: Tue, 31 Mar 1981 05:00:00 GMT
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+Last-Modified: Wed, 05 Jun 2013 01:55:39 GMT
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+Etag: "f078980f0d207996eac62b9363e13ec2"
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: guest_id=v1%3A137039733969124891; Domain=.twitter.com; Path=/; Expires=Fri, 05-Jun-2015 01:55:39 UTC
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: _twitter_sess=BAh7BzoHaWQiJWVkOGQ0MTg0NzA4NGExNWRiODU1NGQ4ODRmNWM0MWQ5Og9j%250AcmVhdGVkX2F0bCsIb%252FALEj8B--d04b9c79e4a3c81942eb938b7e445029efc52e07; domain=.twitter.com; path=/; HttpOnly
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+Server: tfe
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+Cache-Control: no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+Pragma: no-cache
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Mid: e9b8f97e8623fa4b9dcefe70c4b102c87bdd9a5d
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+Status: 200 OK
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Xss-Protection: 1; mode=block
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Frame-Options: SAMEORIGIN
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+Date: Wed, 05 Jun 2013 01:55:39 GMT
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+Vary: Accept-Encoding
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Encoding: gzip
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+Via: HTTP/1.1 GWA
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Type: text/html; charset=utf-8
+[DEBUG][06-05 09:55:37][main][twitter4j.internal.http.HttpResponseImpl][68]
+oauth_token=q9613sy5TNDppevpiQAUAQLSPDVNQimk50K6a2MQw&oauth_token_secret=NOYwstk4WutcjCjfNvUyK8gv8I0BWNiQdULoMRgug8&oauth_callback_confirmed=true
+
+[INFO ][06-05 09:55:37][main][twitter4j.auth.AccessToken][118]
+Got request token.
+[INFO ][06-05 09:55:37][main][twitter4j.auth.AccessToken][119]
+Request token: q9613sy5TNDppevpiQAUAQLSPDVNQimk50K6a2MQw
+[INFO ][06-05 09:55:37][main][twitter4j.auth.AccessToken][120]
+Request token secret: NOYwstk4WutcjCjfNvUyK8gv8I0BWNiQdULoMRgug8
+[INFO ][06-05 09:55:37][main][twitter4j.auth.AccessToken][125]
+Open the following URL and grant access to your account:
+[INFO ][06-05 09:55:37][main][twitter4j.auth.AccessToken][126]
+http://api.twitter.com/oauth/authorize?oauth_token=q9613sy5TNDppevpiQAUAQLSPDVNQimk50K6a2MQw
+[INFO ][06-05 09:55:37][main][twitter4j.auth.AccessToken][134]
+Enter the PIN(if available) and hit enter after you granted access.[PIN]:
+[DEBUG][06-05 09:55:56][main][twitter4j.internal.http.HttpClientImpl][68]
+Opening proxied connection(127.0.0.1:8087)
+[DEBUG][06-05 09:55:56][main][twitter4j.internal.http.HttpClientImpl][68]
+Request: 
+[DEBUG][06-05 09:55:56][main][twitter4j.internal.http.HttpClientImpl][76]
+POST http://api.twitter.com/oauth/access_token
+[DEBUG][06-05 09:55:56][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth base string: POST&http%3A%2F%2Fapi.twitter.com%2Foauth%2Faccess_token&oauth_consumer_key%3DRL1iuV5BalXDUFWLbejjVw%26oauth_nonce%3D2296689777%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1370397356%26oauth_token%3Dq9613sy5TNDppevpiQAUAQLSPDVNQimk50K6a2MQw%26oauth_verifier%3D3073236%26oauth_version%3D1.0
+[DEBUG][06-05 09:55:56][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth signature: zyXWKQoCOuFaw75CDo+aOTYSSBw=
+[DEBUG][06-05 09:55:56][main][twitter4j.internal.http.HttpClientImpl][76]
+Authorization: *************************************************************************************************************************************************************************************************************************************************************************
+[DEBUG][06-05 09:55:56][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-URL: http://twitter4j.org/en/twitter4j-3.0.3.xml
+[DEBUG][06-05 09:55:56][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client: Twitter4J
+[DEBUG][06-05 09:55:56][main][twitter4j.internal.http.HttpClientImpl][68]
+Accept-Encoding: gzip
+[DEBUG][06-05 09:55:56][main][twitter4j.internal.http.HttpClientImpl][68]
+User-Agent: twitter4j http://twitter4j.org/ /3.0.3
+[DEBUG][06-05 09:55:56][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-Version: 3.0.3
+[DEBUG][06-05 09:55:56][main][twitter4j.internal.http.HttpClientImpl][76]
+Post Params: oauth_verifier=3073236
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+Response: 
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+HTTP/1.1 200
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Runtime: 0.08097
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Ua-Compatible: IE=9,chrome=1
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Length: 161
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Transaction: 37222cffbd210bd7
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+Expires: Tue, 31 Mar 1981 05:00:00 GMT
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+Last-Modified: Wed, 05 Jun 2013 01:56:00 GMT
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+Etag: "e4c0a80def4f6d2a5711d9c64d4a8a64"
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: guest_id=v1%3A137039736032951877; Domain=.twitter.com; Path=/; Expires=Fri, 05-Jun-2015 01:56:00 UTC
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: _twitter_sess=BAh7BzoHaWQiJTZlMzlhNGZkNTNjNGZkM2Y4MWM3ZWY4ZWY3MTdhNmNhOg9j%250AcmVhdGVkX2F0bCsIXkEMEj8B--46877989fc09667dbf47c8ccf9b4b6b4c66dd759; domain=.twitter.com; path=/; HttpOnly
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+Server: tfe
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+Cache-Control: no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+Pragma: no-cache
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Mid: f4808a5e598b7060bdfc1eb56643c2da1973cbad
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+Status: 200 OK
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Xss-Protection: 1; mode=block
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Frame-Options: SAMEORIGIN
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+Date: Wed, 05 Jun 2013 01:56:00 GMT
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+Vary: Accept-Encoding
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Encoding: gzip
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+Via: HTTP/1.1 GWA
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Type: text/html; charset=utf-8
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpResponseImpl][68]
+oauth_token=393264915-uq6k7HLhQOpLt2DxZgxQ7MpdSb0cLaefUodaItC0&oauth_token_secret=xMO6id04RgO8k5xEnmeS7UBI4KRVwxNrgf3wqdKZU&user_id=393264915&screen_name=spidershen
+
+[INFO ][06-05 09:55:57][main][twitter4j.auth.AccessToken][150]
+Got access token.
+[INFO ][06-05 09:55:57][main][twitter4j.auth.AccessToken][151]
+Access token: 393264915-uq6k7HLhQOpLt2DxZgxQ7MpdSb0cLaefUodaItC0
+[INFO ][06-05 09:55:57][main][twitter4j.auth.AccessToken][152]
+Access token secret: xMO6id04RgO8k5xEnmeS7UBI4KRVwxNrgf3wqdKZU
+[INFO ][06-05 09:55:57][main][twitter4j.auth.AccessToken][171]
+Successfully stored access token to D:\Java Programe\TwitterCrawler\config\twitterKey\twitter4j-3.properties.
+[INFO ][06-05 09:55:57][main][twitter4j.auth.AccessToken][72]
+twitter4j-4.properties
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+Opening proxied connection(127.0.0.1:8087)
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+Request: 
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][76]
+POST http://api.twitter.com/oauth/request_token
+[DEBUG][06-05 09:55:57][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth base string: POST&http%3A%2F%2Fapi.twitter.com%2Foauth%2Frequest_token&oauth_consumer_key%3DyaRZ7RXQZZpos78MKCaug%26oauth_nonce%3D2272847216%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1370397357%26oauth_version%3D1.0
+[DEBUG][06-05 09:55:57][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth signature: FseeapLxOcg571PpzCU6oBVpVoI=
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][76]
+Authorization: **************************************************************************************************************************************************************************************************************
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-URL: http://twitter4j.org/en/twitter4j-3.0.3.xml
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client: Twitter4J
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+Accept-Encoding: gzip
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+User-Agent: twitter4j http://twitter4j.org/ /3.0.3
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-Version: 3.0.3
+[DEBUG][06-05 09:55:57][main][twitter4j.internal.http.HttpClientImpl][76]
+Post Params: 
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+Response: 
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+HTTP/1.1 200
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Runtime: 0.01444
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Ua-Compatible: IE=9,chrome=1
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Length: 152
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Transaction: 1b7404df83ec8faf
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+Expires: Tue, 31 Mar 1981 05:00:00 GMT
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+Last-Modified: Wed, 05 Jun 2013 01:56:01 GMT
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+Etag: "ddac781351f673c9e936122d0b531c07"
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: guest_id=v1%3A137039736134393263; Domain=.twitter.com; Path=/; Expires=Fri, 05-Jun-2015 01:56:01 UTC
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: _twitter_sess=BAh7BzoHaWQiJTNjZmYwNDU4NzUyOWY0NGZhYjY0NjA2OWFmZThjOTNmOg9j%250AcmVhdGVkX2F0bCsIVkUMEj8B--708771266d41590902432d616c8b193f606d9e74; domain=.twitter.com; path=/; HttpOnly
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+Server: tfe
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+Cache-Control: no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+Pragma: no-cache
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Mid: 83e1a181b6cda99df4cba97f3e2d6c800a05e762
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+Status: 200 OK
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Xss-Protection: 1; mode=block
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Frame-Options: SAMEORIGIN
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+Date: Wed, 05 Jun 2013 01:56:01 GMT
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+Vary: Accept-Encoding
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Encoding: gzip
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+Via: HTTP/1.1 GWA
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Type: text/html; charset=utf-8
+[DEBUG][06-05 09:55:58][main][twitter4j.internal.http.HttpResponseImpl][68]
+oauth_token=6eYzCcmCNYD5NM7ReQqcOGAeHU20WaLf26AU6I2TY&oauth_token_secret=aRR88RzDHhIjbwOBAyy0TYFz0Exp1jvZCsNbwnKNfnA&oauth_callback_confirmed=true
+
+[INFO ][06-05 09:55:58][main][twitter4j.auth.AccessToken][118]
+Got request token.
+[INFO ][06-05 09:55:58][main][twitter4j.auth.AccessToken][119]
+Request token: 6eYzCcmCNYD5NM7ReQqcOGAeHU20WaLf26AU6I2TY
+[INFO ][06-05 09:55:58][main][twitter4j.auth.AccessToken][120]
+Request token secret: aRR88RzDHhIjbwOBAyy0TYFz0Exp1jvZCsNbwnKNfnA
+[INFO ][06-05 09:55:58][main][twitter4j.auth.AccessToken][125]
+Open the following URL and grant access to your account:
+[INFO ][06-05 09:55:58][main][twitter4j.auth.AccessToken][126]
+http://api.twitter.com/oauth/authorize?oauth_token=6eYzCcmCNYD5NM7ReQqcOGAeHU20WaLf26AU6I2TY
+[INFO ][06-05 09:55:58][main][twitter4j.auth.AccessToken][134]
+Enter the PIN(if available) and hit enter after you granted access.[PIN]:
+[DEBUG][06-05 09:59:00][main][twitter4j.internal.http.HttpClientImpl][68]
+Opening proxied connection(127.0.0.1:8087)
+[DEBUG][06-05 09:59:00][main][twitter4j.internal.http.HttpClientImpl][68]
+Request: 
+[DEBUG][06-05 09:59:00][main][twitter4j.internal.http.HttpClientImpl][76]
+POST http://api.twitter.com/oauth/access_token
+[DEBUG][06-05 09:59:00][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth base string: POST&http%3A%2F%2Fapi.twitter.com%2Foauth%2Faccess_token&oauth_consumer_key%3DyaRZ7RXQZZpos78MKCaug%26oauth_nonce%3D537011515%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1370397540%26oauth_token%3D6eYzCcmCNYD5NM7ReQqcOGAeHU20WaLf26AU6I2TY%26oauth_verifier%3D1426576%26oauth_version%3D1.0
+[DEBUG][06-05 09:59:00][main][twitter4j.auth.OAuthAuthorization][76]
+OAuth signature: w2VcxyYA5I5jV/p5o4a00Xoq3RU=
+[DEBUG][06-05 09:59:00][main][twitter4j.internal.http.HttpClientImpl][76]
+Authorization: ***********************************************************************************************************************************************************************************************************************************************************************
+[DEBUG][06-05 09:59:00][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-URL: http://twitter4j.org/en/twitter4j-3.0.3.xml
+[DEBUG][06-05 09:59:00][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client: Twitter4J
+[DEBUG][06-05 09:59:00][main][twitter4j.internal.http.HttpClientImpl][68]
+Accept-Encoding: gzip
+[DEBUG][06-05 09:59:00][main][twitter4j.internal.http.HttpClientImpl][68]
+User-Agent: twitter4j http://twitter4j.org/ /3.0.3
+[DEBUG][06-05 09:59:00][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Twitter-Client-Version: 3.0.3
+[DEBUG][06-05 09:59:00][main][twitter4j.internal.http.HttpClientImpl][76]
+Post Params: oauth_verifier=1426576
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+Response: 
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+HTTP/1.1 200
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Runtime: 0.05365
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Ua-Compatible: IE=9,chrome=1
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Length: 165
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Transaction: 17b2e78784c2bb23
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+Expires: Tue, 31 Mar 1981 05:00:00 GMT
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+Last-Modified: Wed, 05 Jun 2013 01:59:03 GMT
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+Etag: "eeb6d45fbc88a41b6557947ce6c08152"
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: guest_id=v1%3A137039754373407155; Domain=.twitter.com; Path=/; Expires=Fri, 05-Jun-2015 01:59:03 UTC
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+Set-Cookie: _twitter_sess=BAh7BzoHaWQiJTFhZTY5Mzc2NDMxNmZiMDM2ZWIyMGJhYmEwZjc5Y2M4Og9j%250AcmVhdGVkX2F0bCsI0g0PEj8B--5277203b84707b8fc460e5a9e3c5e8095ee54c6d; domain=.twitter.com; path=/; HttpOnly
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+Server: tfe
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+Cache-Control: no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+Pragma: no-cache
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Mid: f70f70642f3a31612f4478a576e7605c135d41a6
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+Status: 200 OK
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Xss-Protection: 1; mode=block
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+X-Frame-Options: SAMEORIGIN
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+Date: Wed, 05 Jun 2013 01:59:03 GMT
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+Vary: Accept-Encoding
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Encoding: gzip
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+Via: HTTP/1.1 GWA
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpClientImpl][68]
+Content-Type: text/html; charset=utf-8
+[DEBUG][06-05 09:59:01][main][twitter4j.internal.http.HttpResponseImpl][68]
+oauth_token=393264915-LXIeBZZOyy0RCQLdCPqebdB8AJLYxnWRbUK1vNEH&oauth_token_secret=7jon50BmUExawyBMOMc2QnUHG36O7p568SP4CXkQfoU&user_id=393264915&screen_name=spidershen
+
+[INFO ][06-05 09:59:01][main][twitter4j.auth.AccessToken][150]
+Got access token.
+[INFO ][06-05 09:59:01][main][twitter4j.auth.AccessToken][151]
+Access token: 393264915-LXIeBZZOyy0RCQLdCPqebdB8AJLYxnWRbUK1vNEH
+[INFO ][06-05 09:59:01][main][twitter4j.auth.AccessToken][152]
+Access token secret: 7jon50BmUExawyBMOMc2QnUHG36O7p568SP4CXkQfoU
+[INFO ][06-05 09:59:01][main][twitter4j.auth.AccessToken][171]
+Successfully stored access token to D:\Java Programe\TwitterCrawler\config\twitterKey\twitter4j-4.properties.
