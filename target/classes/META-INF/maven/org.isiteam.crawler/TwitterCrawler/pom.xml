@@ -45,12 +45,7 @@
     	<artifactId>twitter4j-core</artifactId>
     	<version>3.0.3</version>
     </dependency>
-    
-    <dependency>
-    	<groupId>org.twitter4j</groupId>
-    	<artifactId>twitter4j-media-support</artifactId>
-    	<version>3.0.3</version>
-    </dependency>
+   
     
     <!-- JUnit testing framework -->
     <dependency>
@@ -74,18 +69,15 @@
     </dependency>
     
     <!-- Spring framework -->
-    <dependency>
-    	<groupId>org.springframework</groupId>
-    	<artifactId>spring</artifactId>
-    	<version>2.5.6</version>
-    	<scope>runtime</scope>
-    </dependency>
+    
     <!-- Spring AOP dependency -->
+    
     <dependency>
-    	<groupId>cglib</groupId>
-    	<artifactId>cglib</artifactId>
-    	<version>3.0</version>
-    </dependency>
+    	        <groupId>cglib</groupId>
+		<artifactId>cglib</artifactId>
+		<version>2.2</version>
+	</dependency>
+	
   <!-- MySQL database driver -->
   <dependency>
     	<groupId>mysql</groupId>
@@ -94,50 +86,45 @@
     </dependency>
     
     	<!-- Hibernate framework -->
-<dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate</artifactId>
-    <version>3.2.3.ga</version>
-</dependency>
+    <dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring</artifactId>
+		<version>2.5.6</version>
+	</dependency>
 
+
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-annotations</artifactId>
+		<version>3.3.1.GA</version>
+	</dependency>
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-entitymanager</artifactId>
+		<version>3.3.1.ga</version>
+	</dependency>
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+		<version>3.3.1.GA</version>
+	</dependency>
+
+	
 	<!-- Hibernate library dependecy start -->
-	<dependency>
-		<groupId>dom4j</groupId>
-		<artifactId>dom4j</artifactId>
-		<version>1.6.1</version>
-	</dependency>
- 
-	<dependency>
-		<groupId>commons-logging</groupId>
-		<artifactId>commons-logging</artifactId>
-		<version>1.1.1</version>
-	</dependency>
- 
-	<dependency>
-		<groupId>commons-collections</groupId>
-		<artifactId>commons-collections</artifactId>
-		<version>3.2.1</version>
-	</dependency>
- 
-	<dependency>
-		<groupId>antlr</groupId>
-		<artifactId>antlr</artifactId>
-		<version>2.7.7</version>
-	</dependency>
+	
 	<!-- Hibernate library dependecy end -->
 	
-	
- 
-    
   </dependencies>
   
   
  <repositories>
    
     <repository>
-        <id>jboss</id>
-        <url>http://repository.jboss.com/maven2/</url>
-    </repository>
+        <id>JBoss</id>
+        <name>The "public-jboss" repository group provides a combined view all JBoss community project artifacts</name>
+        <layout>default</layout>
+        <url>http://repository.jboss.org/nexus/content/groups/public-jboss</url>
+	</repository>
     
     <repository>  
         <id>java</id>  
@@ -152,7 +139,7 @@
     <!-- Hibernate framework -->
 
   
-<build>
+	<build>
 	  <plugins>
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
