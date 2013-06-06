@@ -59,7 +59,7 @@
 		</property>
 		<property name="packagesToScan">
 			<list>
-				<value>other.database.bean</value>
+				<value>isiteam.TwitterCrawler.database.bean</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -125,7 +125,7 @@
 	 -->
  
  <aop:config>
-    <aop:pointcut id="allManagerMethod" expression="execution(* other.service.impl.*.*(..))"/>
+    <aop:pointcut id="allManagerMethod" expression="execution(* isiteam.TwitterCrawler.database.dao.impl.*.*(..))"/>
     <aop:advisor pointcut-ref="allManagerMethod" advice-ref="txAdvice"/>
  </aop:config>
 

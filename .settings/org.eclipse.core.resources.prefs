@@ -1,4 +1,7 @@
-#Wed Jun 05 18:59:48 CST 2013
+#Fri Jun 07 00:15:35 CST 2013
 eclipse.preferences.version=1
+encoding//config/dbsettings.properties=UTF-8
 encoding//src/main/java=UTF-8
 encoding//src/test/java=UTF-8
+encoding//src/test/twitterapi/twitter4j/examples/myTest/twitterTest/CreatAccessToken.java=UTF-8
+encoding/<project>=UTF-8
