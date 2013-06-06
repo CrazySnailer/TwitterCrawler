@@ -73,11 +73,18 @@
 		</property>
 		<property name="annotatedClasses">
 			<list>
-			<value>other.database.bean.Relation</value>
-			<value>other.database.bean.Facesequence</value>
-			<value>other.database.bean.Video</value>
-			<value>other.database.bean.Keywords</value>
-			<value>other.database.bean.Facesimilarity</value></list>
+			<value>
+				isiteam.TwitterCrawler.database.bean.TwitterTweetInfo
+			</value>
+			<value>
+				isiteam.TwitterCrawler.database.bean.TwitterUserInfo
+			</value>
+			<value>
+				isiteam.TwitterCrawler.database.bean.TwitterFansFriend
+			</value>
+			<value>
+				isiteam.TwitterCrawler.database.bean.TwitterTweetComment
+			</value></list>
 		</property></bean>
 	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
 		<property name="sessionFactory" ref="sessionFactory"></property>
