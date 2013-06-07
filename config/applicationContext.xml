@@ -126,7 +126,7 @@
 	 -->
  
  <aop:config>
-    <aop:pointcut id="allManagerMethod" expression="execution(* isiteam.TwitterCrawler.database.dao.impl.*.*(..))"/>
+    <aop:pointcut id="allManagerMethod" expression="execution(* isiteam.TwitterCrawler.mainApp.*.*(..))"/>
     <aop:advisor pointcut-ref="allManagerMethod" advice-ref="txAdvice"/>
  </aop:config>
 

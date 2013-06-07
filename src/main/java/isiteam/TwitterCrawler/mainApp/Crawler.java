@@ -19,16 +19,18 @@ import isiteam.TwitterCrawler.database.dao.TwitterTweetInfoDao;
 import isiteam.TwitterCrawler.database.dao.TwitterUserInfoDao;
 import isiteam.TwitterCrawler.util.AppContext;
 import isiteam.TwitterCrawler.util.Constant;
-import isiteam.TwitterCrawler.util.OSUtil;
+
 
 
 import javax.annotation.Resource;
 
-import org.apache.log4j.Logger;
+
 import org.apache.log4j.PropertyConfigurator;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.test.context.ContextConfiguration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import org.springframework.stereotype.Service;
+
 
 
 
@@ -41,31 +43,11 @@ import org.springframework.test.context.ContextConfiguration;
  * @Copyright 2013 ISI Team of NUDT-版权所有
  * @Version 1.0.0
  */
-//@ApplicationContext(locations = "classpath:applicationContext.xml")
+@Service
 public class Crawler {
-	
-	/*@Resource
-	public  ApplicationContext appCtx;
+	private static final Logger log =  LoggerFactory
+			.getLogger(Crawler.class);
 
-
-
-	// init internal application context
-	public  void initAppCtx() {
-		if(OSUtil.isWindowsOS()){
-			appCtx = new FileSystemXmlApplicationContext(new String[] {
-					Constant.applicationContext_PATH});
-		}else{
-			appCtx = new FileSystemXmlApplicationContext("/"+Constant.applicationContext_PATH);
-		}
-		
-	}
-	
-	@Resource
-    private ApplicationContext context;
-
-
-    
-	
 	@Resource
 	private TwitterFansFriendDao twitterFansFriendDao;
 	
@@ -75,13 +57,13 @@ public class Crawler {
 	@Resource
 	private TwitterTweetInfoDao twitterTweetInfoDao;
 	
-	@Resource*/
-	private static TwitterUserInfoDao twitterUserInfoDao;
+	@Resource
+	private TwitterUserInfoDao twitterUserInfoDao;
 
     public void save(){
 		
     	TwitterUserInfo user=new TwitterUserInfo();
-		user.setUsername("OOXXOO");
+		user.setUsername("PPPPPPPOXXOOOP");
 	
 		
 		twitterUserInfoDao.save(user);
@@ -98,15 +80,11 @@ public class Crawler {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 	    PropertyConfigurator.configureAndWatch(Constant.LOG4J_PATH);
-		//log.info("正在创建数据库连接和缓冲池...");
-	    //AppContext.initAppCtx();
-		//log.info("数据库连接已连接！缓冲池已建立");
-		
-	    ApplicationContext appCtx = new FileSystemXmlApplicationContext(new String[] {
-				Constant.applicationContext_PATH});
+		log.info("正在创建数据库连接和缓冲池...");
+	    AppContext.initAppCtx();
+		log.info("数据库连接已连接！缓冲池已建立");
 	
-		Crawler crawler=new Crawler();
-		twitterUserInfoDao=(TwitterUserInfoDao) appCtx.getBean("twitterUserInfoDao");
+		Crawler crawler=(Crawler) AppContext.appCtx.getBean("crawler");
 		crawler.save();
 
 	}
