@@ -10,7 +10,7 @@
 * 
 */
  
-package daoTest;
+package isiteam.TwitterCrawler.mainApp;
 
 
 import isiteam.TwitterCrawler.database.bean.TwitterUserInfo;
@@ -23,6 +23,9 @@ import javax.annotation.Resource;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -38,7 +41,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @Version 1.0.0
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:*/config/applicationContext.xml")
+@ContextConfiguration(locations = "classpath:applicationContext.xml")
 public class DaoTest {
 	/*@Resource
 	private TwitterFansFriendDao twitterFansFriendDao;
@@ -56,7 +59,7 @@ public class DaoTest {
 	public void save(){
 		
 		TwitterUserInfo user=new TwitterUserInfo();
-		user.setUsername("XXOO");
+		user.setUsername("XoXOO");
 	
 		
 		twitterUserInfoDao.save(user);
