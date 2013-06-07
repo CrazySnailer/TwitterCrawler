@@ -264,41 +264,7 @@ public class GetUserTimeline {
 	}
 	
 	public static void getUserInfo(String [] userScreenName){
-		String userName="";
-		String userPasswd="";
-		String dbName="";
-		userName="webuser";
-		userPasswd="webuser10";
-		dbName="XuniTwitter";;
-		String url="jdbc:mysql://172.20.201.130/"+dbName+"?user="+userName+"&password="+userPasswd+"&useUnicode=true&characterEncoding=gbk";
-		try {
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
-		} catch (InstantiationException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		} catch (IllegalAccessException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		} catch (ClassNotFoundException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
-		Connection connection = null;
-		try {
-			connection = DriverManager.getConnection(url);
-		} catch (SQLException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
-		Statement statement = null;
-		//Statement statementAdd = null;
-		try {
-			statement = connection.createStatement();
-			//statementAdd = connection.createStatement();
-		} catch (SQLException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
+		
 		props.put(PropertyConfiguration.HTTP_PROXY_HOST, "127.0.0.1");
 		props.put(PropertyConfiguration.HTTP_PROXY_PORT, "8087");
 		props.put(PropertyConfiguration.OAUTH_CONSUMER_KEY, "WdM6eZhENPYSEbxvCXH8A");
@@ -330,37 +296,8 @@ public class GetUserTimeline {
 						
 						//System.out.println(strSql);
 						//String strSql ="insert into userStatus (statusId,userScreenName,userTweet,statusTime,retweetNum,source,insertTime) values('"+statusId+"','"+screenName+"','"+text+"','"+statusDate+"','"+retweetNum+"','"+source+"','"+currentTime+"')";
-						try {
-							statement.execute(strSql);
-							System.out.println("insert user success------------------------------------------------");	
-						} catch (SQLException e) {
-							// TODO Auto-generated catch block
-							try {
-								connection.close();
-							} catch (Exception e1) {
-								// TODO Auto-generated catch block
-								e1.printStackTrace();
-							}
-							try {
-								connection = DriverManager.getConnection(url);
-							} catch (SQLException e2) {
-								// TODO Auto-generated catch block
-								e2.printStackTrace();
-							}
-							try {
-								statement = connection.createStatement();
-							} catch (SQLException e2) {
-								// TODO Auto-generated catch block
-								e2.printStackTrace();
-							}	
-							try {
-								statement.execute(strSql);
-							} catch (SQLException e1) {
-								// TODO Auto-generated catch block
-								e1.printStackTrace();
-							}
-							e.printStackTrace();
-						}
+						
+						
 						
 	                } else {
 	                    // the user is protected
@@ -552,7 +489,7 @@ public class GetUserTimeline {
 		 userScreenName [0] = "opiniontest";
 		 while (true){
 			 try {
-				 System.out.println("»ñÈ¡ÍøÂç¹ØÏµ----------------------");
+				 System.out.println("ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ïµ----------------------");
 				getuserNetWork("opiniontest");
 				/*try {
 					Thread.sleep((long)(Math.random() * 1000 * 60 * 5));
@@ -565,7 +502,7 @@ public class GetUserTimeline {
 				e2.printStackTrace();
 			}				 
 			 try {
-				System.out.println("»ñÈ¡¸öÈËÐÅÏ¢----------------------");
+				System.out.println("ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢----------------------");
 				getUserInfo(userScreenName);
 				/*try {
 					Thread.sleep((long)(Math.random() * 1000 * 60 * 5));
@@ -578,7 +515,7 @@ public class GetUserTimeline {
 				e1.printStackTrace();
 			}		 
 			 try {
-				 System.out.println("»ñÈ¡²©ÎÄÐÅÏ¢----------------------");
+				 System.out.println("ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢----------------------");
 				getTimeLine("opiniontest");
 				/*try {
 					Thread.sleep((long)(Math.random() * 1000 * 60 * 5));

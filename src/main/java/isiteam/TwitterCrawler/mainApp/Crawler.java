@@ -60,15 +60,7 @@ public class Crawler {
 	@Resource
 	private TwitterUserInfoDao twitterUserInfoDao;
 
-    public void save(){
-		
-    	TwitterUserInfo user=new TwitterUserInfo();
-		user.setUsername("PPPPPPPOXXOOOP");
-	
-		
-		twitterUserInfoDao.save(user);
-		
-	}
+    
 	
 	/**
 	 * @function main
@@ -85,7 +77,8 @@ public class Crawler {
 		log.info("数据库连接已连接！缓冲池已建立");
 	
 		Crawler crawler=(Crawler) AppContext.appCtx.getBean("crawler");
-		crawler.save();
+		
+		
 
 	}
 
