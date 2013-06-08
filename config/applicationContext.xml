@@ -68,7 +68,7 @@
 				<prop key="hibernate.dialect">
 					org.hibernate.dialect.MySQLDialect
 				</prop>
-				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.show_sql">false</prop>
 				<prop key="hibernate.format_sql">true</prop>
 			</props>
 		</property>
@@ -109,6 +109,7 @@
      <tx:method name="update*" propagation="REQUIRED"/>
      <tx:method name="save*" propagation="REQUIRED"/>
      <tx:method name="get*" propagation="REQUIRED"/>
+     <tx:method name="batch*" propagation="REQUIRED"/>     
      <tx:method name="*" read-only="true"/>
     </tx:attributes>
  </tx:advice>
@@ -126,7 +127,7 @@
 	 -->
  
  <aop:config>
-    <aop:pointcut id="allManagerMethod" expression="execution(* isiteam.TwitterCrawler.mainApp.*.*(..))"/>
+    <aop:pointcut id="allManagerMethod" expression="execution(* isiteam.TwitterCrawler.database.dao.impl.*.*(..))"/>
     <aop:advisor pointcut-ref="allManagerMethod" advice-ref="txAdvice"/>
  </aop:config>
 

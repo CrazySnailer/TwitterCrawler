@@ -31,4 +31,12 @@ public interface SeedsQueueDao {
 
 	List<SeedsQueue> getSeedsQueue(int count);
 
+	void save(SeedsQueue newSeed);
+
+	void update(SeedsQueue e);
+	
+    void batchSaveSeedsQueue(final List<SeedsQueue> seedsQueue,final int batchSize);
+
+	boolean getIsExistSeed(SeedsQueue newSeed);
+
 }

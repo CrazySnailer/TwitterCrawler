@@ -12,6 +12,10 @@
  
 package isiteam.TwitterCrawler.database.dao;
 
+import java.util.List;
+
+import isiteam.TwitterCrawler.database.bean.UserFriends;
+
 
 /**
  * @project Twitter
@@ -24,5 +28,11 @@ package isiteam.TwitterCrawler.database.dao;
  */
 
 public interface UserFriendsDao {
+
+	void save(UserFriends newFriend);
+
+	void batchSaveUserFriends(List<UserFriends> userFriendsList, int batchSize);
+
+	boolean getIsExistFriends(UserFriends newFriend);
 
 }

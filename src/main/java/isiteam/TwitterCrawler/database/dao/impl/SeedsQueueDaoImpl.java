@@ -54,17 +54,103 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 	@Override
 	public List<SeedsQueue> getSeedsQueue(final int count) {
 		// TODO Auto-generated method stub
-		final String hql="from SeedsQueue order by isFriendsInfo ASC, level ASC";
+		
+		try{
+			final String hql="from SeedsQueue order by isFriendsInfo ASC, level ASC";
+			List list=this.getHibernateTemplate().executeFind(new HibernateCallback() {
+				public Object doInHibernate(Session session)
+						throws HibernateException, SQLException {
+					Query query=session.createQuery(hql);
+					query.setFirstResult(0);
+					query.setMaxResults(count);
+					List list=query.list();
+					return list;
+				}
+			});
+			return list;
+		
+		}catch(Exception e){
+			log.error("getSeedsQueue ERROR!"+e.getMessage());
+			return null;
+		}
+	}
+
+	@Override
+	public void save(SeedsQueue newSeed) {
+		// TODO Auto-generated method stub
+		try{
+			hibernateTemplate.save(newSeed);
+		}catch(Exception e){
+			log.error("SeedsQueue save ERROR!"+e.getMessage());			
+		}
+	}
+
+	@Override
+	public void update(SeedsQueue e) {
+		// TODO Auto-generated method stub
+		try{
+			hibernateTemplate.update(e);
+		}catch(Exception e1){
+			log.error("SeedsQueue update ERROR!"+e1.getMessage());			
+		}
+	}
+	
+    public void batchSaveSeedsQueue(final List<SeedsQueue> seedsQueue,final int batchSize) {
+        
+         this.getHibernateTemplate().execute(new HibernateCallback<Object>() {
+        	@Override
+			public Object doInHibernate(Session session)
+					throws HibernateException, SQLException {
+			       for (int i = 0; i < seedsQueue.size(); i++) {  
+	                    try {
+							session.save(seedsQueue.get(i));
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							//e1.printStackTrace();
+						}         
+	                    if (i % batchSize == 0) {  
+	                        try {
+								session.flush();
+							} catch (Exception e) {
+								// TODO Auto-generated catch block
+								//e.printStackTrace();
+							}  
+	                        session.clear();  
+	                    }  
+	                }			       
+			       try {
+					session.flush();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					//e.printStackTrace();
+				}
+                   session.clear();
+			       return null; 
+			}
+		});
+
+        
+        
+   }
+
+	@Override
+	public boolean getIsExistSeed(SeedsQueue newSeed) {
+		// TODO Auto-generated method stub
+		final String hql="from SeedsQueue where userId = '"+newSeed.getUserId() +"'";
 		List list=this.getHibernateTemplate().executeFind(new HibernateCallback() {
 			public Object doInHibernate(Session session)
 					throws HibernateException, SQLException {
 				Query query=session.createQuery(hql);
-				query.setFirstResult(0);
-				query.setMaxResults(count);
 				List list=query.list();
 				return list;
 			}
 		});
-		return list;
-	}
+		
+		if(list.size()==0){			
+		    return false;
+	    }else {
+	    	return true;
+	    }
+	
+	}   
 }

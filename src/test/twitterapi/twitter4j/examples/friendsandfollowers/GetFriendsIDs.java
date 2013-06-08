@@ -16,10 +16,14 @@
 
 package twitter4j.examples.friendsandfollowers;
 
+import java.util.Properties;
+
 import twitter4j.IDs;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
+import twitter4j.auth.AccessToken;
+import twitter4j.conf.PropertyConfiguration;
 
 /**
  * Lists friends' ids
@@ -27,6 +31,9 @@ import twitter4j.TwitterFactory;
  * @author Yusuke Yamamoto - yusuke at mac.com
  */
 public final class GetFriendsIDs {
+	
+	private static Properties props = new Properties();
+	
     /**
      * Usage: java twitter4j.examples.friendsandfollowers.GetFriendsIDs [screen name]
      *
@@ -34,20 +41,28 @@ public final class GetFriendsIDs {
      */
     public static void main(String[] args) {
         try {
-            Twitter twitter = new TwitterFactory().getInstance();
+        	
+        	props.put(PropertyConfiguration.HTTP_PROXY_HOST, "127.0.0.1");
+    		props.put(PropertyConfiguration.HTTP_PROXY_PORT, "8087");
+    		props.put(PropertyConfiguration.OAUTH_CONSUMER_KEY, "WdM6eZhENPYSEbxvCXH8A");
+            props.put(PropertyConfiguration.OAUTH_CONSUMER_SECRET, "Z3rUV2S9sgsfTKytdpipjugZykQe9F8TQPOyt9ldo");	
+    		AccessToken token = new AccessToken(
+    				"835028173-Tc6qHpE14zNWcxpp65aKkIzd3ggXRU2xKtjnKdzh",
+    				"cGrAh8FDmfDwNlLEr2PCwzMJulzMCu0bPkxz5suMCc");
+    		PropertyConfiguration conf = new PropertyConfiguration(props);
+    		Twitter twitter = new TwitterFactory(conf).getInstance(token);
+           
             long cursor = -1;
             IDs ids;
             System.out.println("Listing following ids.");
-            do {
-                if (0 < args.length) {
-                    ids = twitter.getFriendsIDs(args[0], cursor);
-                } else {
-                    ids = twitter.getFriendsIDs(cursor);
-                }
+           // do {
+              
+                    ids = twitter.getFriendsIDs(14581421, cursor);
+                
                 for (long id : ids.getIDs()) {
                     System.out.println(id);
                 }
-            } while ((cursor = ids.getNextCursor()) != 0);
+            //} while ((cursor = ids.getNextCursor()) != 0);
             System.exit(0);
         } catch (TwitterException te) {
             te.printStackTrace();
