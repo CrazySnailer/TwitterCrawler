@@ -12,11 +12,11 @@
  
 package isiteam.TwitterCrawler.mainApp;
 
-import isiteam.TwitterCrawler.database.bean.TwitterUserInfo;
-import isiteam.TwitterCrawler.database.dao.TwitterFansFriendDao;
-import isiteam.TwitterCrawler.database.dao.TwitterTweetCommentDao;
-import isiteam.TwitterCrawler.database.dao.TwitterTweetInfoDao;
-import isiteam.TwitterCrawler.database.dao.TwitterUserInfoDao;
+import java.util.List;
+
+import isiteam.TwitterCrawler.database.bean.SeedsQueue;
+import isiteam.TwitterCrawler.database.dao.SeedsQueueDao;
+import isiteam.TwitterCrawler.database.dao.UserFriendsDao;
 import isiteam.TwitterCrawler.util.AppContext;
 import isiteam.TwitterCrawler.util.Constant;
 
@@ -44,23 +44,31 @@ import org.springframework.stereotype.Service;
  * @Version 1.0.0
  */
 @Service
-public class Crawler {
+public class RelationCrawler {
 	private static final Logger log =  LoggerFactory
-			.getLogger(Crawler.class);
+			.getLogger(RelationCrawler.class);
 
 	@Resource
-	private TwitterFansFriendDao twitterFansFriendDao;
+	private	SeedsQueueDao seedsQueueDao;
 	
 	@Resource
-	private TwitterTweetCommentDao twitterTweetCommentDao;
-	
-	@Resource
-	private TwitterTweetInfoDao twitterTweetInfoDao;
-	
-	@Resource
-	private TwitterUserInfoDao twitterUserInfoDao;
-
-    
+	private	UserFriendsDao userFriendsDao;
+		
+	public void startCrawling(){
+		
+		int Count=1;
+		
+		//while(true){
+			
+			List<SeedsQueue> Queue=seedsQueueDao.getSeedsQueue(Count);
+			
+			log.info(Queue.get(0).getUserId());
+			
+			
+		//}
+		
+		
+	}
 	
 	/**
 	 * @function main
@@ -76,9 +84,9 @@ public class Crawler {
 	    AppContext.initAppCtx();
 		log.info("数据库连接已连接！缓冲池已建立");
 	
-		Crawler crawler=(Crawler) AppContext.appCtx.getBean("crawler");
+		RelationCrawler crawler=(RelationCrawler) AppContext.appCtx.getBean("relationCrawler");
 		
-		
+		crawler.startCrawling();
 
 	}
 

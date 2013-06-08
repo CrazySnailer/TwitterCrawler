@@ -13,11 +13,7 @@
 package daoTest;
 
 
-import isiteam.TwitterCrawler.database.bean.TwitterUserInfo;
-import isiteam.TwitterCrawler.database.dao.TwitterFansFriendDao;
-import isiteam.TwitterCrawler.database.dao.TwitterTweetCommentDao;
-import isiteam.TwitterCrawler.database.dao.TwitterTweetInfoDao;
-import isiteam.TwitterCrawler.database.dao.TwitterUserInfoDao;
+
 
 import javax.annotation.Resource;
 
@@ -50,7 +46,7 @@ public class DaoTest  extends AbstractJUnit4SpringContextTests{
 	@Resource
 	private TwitterTweetInfoDao twitterTweetInfoDao; */
 	
-	@Resource
+	/*@Resource
 	private TwitterUserInfoDao twitterUserInfoDao;
 
 	@Test
@@ -62,7 +58,7 @@ public class DaoTest  extends AbstractJUnit4SpringContextTests{
 		
 		twitterUserInfoDao.save(user);
 		
-	}
+	} */
 	
 	
 

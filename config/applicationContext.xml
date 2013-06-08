@@ -75,16 +75,16 @@
 		<property name="annotatedClasses">
 			<list>
 			<value>
-				isiteam.TwitterCrawler.database.bean.TwitterTweetInfo
+				isiteam.TwitterCrawler.database.bean.UserInfo
 			</value>
 			<value>
-				isiteam.TwitterCrawler.database.bean.TwitterUserInfo
+				isiteam.TwitterCrawler.database.bean.SeedsQueue
 			</value>
 			<value>
-				isiteam.TwitterCrawler.database.bean.TwitterFansFriend
+				isiteam.TwitterCrawler.database.bean.TweetInfo
 			</value>
 			<value>
-				isiteam.TwitterCrawler.database.bean.TwitterTweetComment
+				isiteam.TwitterCrawler.database.bean.UserFriends
 			</value></list>
 		</property></bean>
 	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
