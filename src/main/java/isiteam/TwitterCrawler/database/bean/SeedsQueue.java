@@ -23,6 +23,7 @@ public class SeedsQueue implements java.io.Serializable {
 	private Integer isFriendsInfo;
 	private Integer isTweetsInfo;
 	private Integer level;
+	private Integer isDeal;
 	private Timestamp insertTime;
 
 	// Constructors
@@ -33,12 +34,14 @@ public class SeedsQueue implements java.io.Serializable {
 
 	/** full constructor */
 	public SeedsQueue(String userId, Integer isUserInfo, Integer isFriendsInfo,
-			Integer isTweetsInfo, Integer level, Timestamp insertTime) {
+			Integer isTweetsInfo, Integer level, Integer isDeal,
+			Timestamp insertTime) {
 		this.userId = userId;
 		this.isUserInfo = isUserInfo;
 		this.isFriendsInfo = isFriendsInfo;
 		this.isTweetsInfo = isTweetsInfo;
 		this.level = level;
+		this.isDeal = isDeal;
 		this.insertTime = insertTime;
 	}
 
@@ -97,6 +100,15 @@ public class SeedsQueue implements java.io.Serializable {
 
 	public void setLevel(Integer level) {
 		this.level = level;
+	}
+
+	@Column(name = "isDeal")
+	public Integer getIsDeal() {
+		return this.isDeal;
+	}
+
+	public void setIsDeal(Integer isDeal) {
+		this.isDeal = isDeal;
 	}
 
 	@Column(name = "insertTime", length = 19)

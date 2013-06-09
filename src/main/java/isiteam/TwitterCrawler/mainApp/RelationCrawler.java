@@ -80,7 +80,187 @@ public class RelationCrawler {
 	
 	private static Properties props = new Properties();
 	
-	public void GetAccessTokenList(String filePath){
+	
+	public void startCrawling(String propertyName){
+		
+		GetAccessToken(Constant.TwitterKey_PATH,propertyName);
+			
+        AccessToken token = new AccessToken(
+        		props.getProperty("oauth.accessToken"),
+        		props.getProperty("oauth.accessTokenSecret"));
+        
+		PropertyConfiguration conf = new PropertyConfiguration(props);
+		Twitter twitter = new TwitterFactory(conf).getInstance(token);
+		
+		
+		int Count=15;
+		long cursor = -1;
+		int batchSize=100;
+		IDs ids;
+		
+		List<SeedsQueue> SeedsQueueList=new ArrayList<SeedsQueue>();
+		List<UserFriends> UserFriendsList=new ArrayList<UserFriends>();
+		List<SeedsQueue> Queue = null;
+		
+		while(true){
+			
+			if(Count>15){
+				log.info("用户队列不能大于15！");
+				System.exit(0);
+			}
+			
+			try {
+				Queue = seedsQueueDao.getSeedsQueueByisFriendsInfo(Count);
+			} catch (Exception e2) {
+				// TODO Auto-generated catch block
+				log.error("getSeedsQueueByisFriendsInfo ERROR!"+e2.getMessage());	
+			}
+						
+			
+			if(Queue==null){//已经取不到数据
+				continue;
+			}
+			log.info("Queue Size: "+Queue.size());
+
+			
+			for(SeedsQueue e:Queue){
+				
+				log.info("采集用户: "+e.getUserId());
+				
+				try {
+					ids = twitter.getFriendsIDs(Long.valueOf(e.getUserId()), cursor);
+					
+					//清除列表，以进一步添加数据
+					SeedsQueueList.clear();
+					UserFriendsList.clear();
+				   
+					   for (long id : ids.getIDs()) {
+		                
+						   //插入好友关系
+						   UserFriends newFriend=new UserFriends();
+						   
+						   newFriend.setUserId(e.getUserId());
+						   newFriend.setFriendsId(String.valueOf(id));
+						   newFriend.setCrawledNum(e.getIsFriendsInfo()+1);
+						   newFriend.setInsertTime(new Timestamp(System.currentTimeMillis()));
+						   
+						   if (!userFriendsDao.getIsExistFriends(newFriend)){
+							   UserFriendsList.add(newFriend);
+						   }
+						   
+						   
+						   //增加种子节点
+						   SeedsQueue newSeed=new SeedsQueue();
+						   
+						   newSeed.setUserId(String.valueOf(id));
+						   newSeed.setIsFriendsInfo(0);
+						   newSeed.setIsTweetsInfo(0);
+						   newSeed.setIsUserInfo(0);
+						   newSeed.setIsDeal(1);
+						   newSeed.setLevel(e.getLevel()+1);
+						   newSeed.setInsertTime(new Timestamp(System.currentTimeMillis()));
+						   
+						   if (!seedsQueueDao.getIsExistSeed(newSeed)){
+							    SeedsQueueList.add(newSeed);
+						   }
+						   
+		               }//end for
+					   
+					   try {
+							userFriendsDao.batchSaveUserFriends(UserFriendsList,batchSize);
+						    } catch (Exception e1) {
+							// TODO Auto-generated catch block
+						    	log.error("batchSaveUserFriends ERROR!"+e1.getMessage());	
+						    }
+					   
+					   try {
+							seedsQueueDao.batchSaveSeedsQueue(SeedsQueueList,batchSize);
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							log.error("batchSaveSeedsQueue ERROR!"+e1.getMessage());		
+						}
+					   
+					 
+					   
+					     //更新
+					      e.setIsFriendsInfo(e.getIsFriendsInfo()+1);
+					      e.setInsertTime(new Timestamp(System.currentTimeMillis()));
+					   try {
+						seedsQueueDao.updateIsFriendsInfo(e);
+					   } catch (Exception e1) {
+						// TODO Auto-generated catch block
+						log.error("SeedsQueue update ERROR!"+e1.getMessage());	
+					   }
+					   
+					   
+						if(ids.getRateLimitStatus().getRemaining()==0){
+							log.info("Sleep intervalTime: "+ids.getRateLimitStatus().getSecondsUntilReset()/60+" Minutes");
+							
+							try {
+								Thread.sleep(ids.getRateLimitStatus().getSecondsUntilReset()*1000);
+							} catch (InterruptedException e1) {
+								// TODO Auto-generated catch block
+								log.error("Sleep Error: " + e1.getMessage());	 
+							} 
+							
+						}
+						   
+				   
+				   } catch (TwitterException te) {
+		            log.error("Failed to get friends' ids: " + te.getMessage());	 
+		            if(te.getStatusCode()==429){
+		            	
+		            	log.info("Sleep intervalTime: "+te.getRateLimitStatus().getSecondsUntilReset()/60+" Minutes");
+						
+						try {
+							Thread.sleep(te.getRateLimitStatus().getSecondsUntilReset()*1000);
+						} catch (InterruptedException e1) {
+							// TODO Auto-generated catch block
+							log.error("Sleep Error: " + e1.getMessage());	 
+						} 
+		            }//End If
+		           }//End Catch
+				
+			}
+			
+		
+			
+
+			
+		}
+		
+		
+	}
+	
+	/**
+	 * @function main
+	 * 
+	 * @param args
+	 * @author Dayong.Shen
+	 * @date 2013-6-6-下午11:28:58
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	    PropertyConfigurator.configureAndWatch(Constant.LOG4J_PATH);
+		log.info("正在创建数据库连接和缓冲池...");
+	    AppContext.initAppCtx();
+		log.info("数据库连接已连接！缓冲池已建立");
+	
+		RelationCrawler crawler=(RelationCrawler) AppContext.appCtx.getBean("relationCrawler");
+		
+		if (args.length < 1) {
+                // consumer key/secret are not set in twitter4j.properties
+                System.out.println(
+                        "Usage: java isiteam.TwitterCrawler.mainApp.RelationCrawler [twitter4j-4.propertiesName]");
+                System.exit(-1);
+           
+        } 
+		
+		crawler.startCrawling(args[0]);
+
+	}// end main
+	
+public void GetAccessTokenList(String filePath){
 		
 		
 		final String extend_name = ".properties";
@@ -203,179 +383,6 @@ public class RelationCrawler {
 	
 		
 		
-	}
-	
-	
-	public void startCrawling(String propertyName){
-		
-		GetAccessToken(Constant.TwitterKey_PATH,propertyName);
-			
-        AccessToken token = new AccessToken(
-        		props.getProperty("oauth.accessToken"),
-        		props.getProperty("oauth.accessTokenSecret"));
-        
-		PropertyConfiguration conf = new PropertyConfiguration(props);
-		Twitter twitter = new TwitterFactory(conf).getInstance(token);
-		
-		
-		int Count=15;
-		long cursor = -1;
-		int batchSize=100;
-		IDs ids;
-		
-		long startTimeLong;
-		long endTimeLong;
-		long intervalTime;
-		
-		List<SeedsQueue> SeedsQueueList=new ArrayList<SeedsQueue>();
-		List<UserFriends> UserFriendsList=new ArrayList<UserFriends>();
-		List<SeedsQueue> Queue = null;
-		
-		while(true){
-			
-			if(Count>15){
-				log.info("用户队列不能大于15！");
-				System.exit(0);
-			}
-			
-			try {
-				Queue = seedsQueueDao.getSeedsQueue(Count);
-			} catch (Exception e2) {
-				// TODO Auto-generated catch block
-				log.error("getSeedsQueue ERROR!"+e2.getMessage());	
-			}
-						
-			
-			if(Queue.isEmpty()){//已经取不到数据
-				continue;
-			}
-			log.info("Queue Size: "+Queue.size());
-			//记录初始时间
-			startTimeLong = System.currentTimeMillis();
-			
-			for(SeedsQueue e:Queue){
-				
-				log.info("采集用户: "+e.getUserId());
-				
-				try {
-					ids = twitter.getFriendsIDs(Long.valueOf(e.getUserId()), cursor);
-					
-					//清除列表，以进一步添加数据
-					SeedsQueueList.clear();
-					UserFriendsList.clear();
-				   
-					   for (long id : ids.getIDs()) {
-						   
-						  
-		                
-						   //插入好友关系
-						   UserFriends newFriend=new UserFriends();
-						   
-						   newFriend.setUserId(e.getUserId());
-						   newFriend.setFriendsId(String.valueOf(id));
-						   newFriend.setCrawledNum(e.getIsFriendsInfo()+1);
-						   newFriend.setInsertTime(new Timestamp(System.currentTimeMillis()));
-						   
-						   if (!userFriendsDao.getIsExistFriends(newFriend)){
-							   UserFriendsList.add(newFriend);
-						   }
-						   
-						   
-						   //增加种子节点
-						   SeedsQueue newSeed=new SeedsQueue();
-						   
-						   newSeed.setUserId(String.valueOf(id));
-						   newSeed.setIsFriendsInfo(0);
-						   newSeed.setIsTweetsInfo(0);
-						   newSeed.setIsUserInfo(0);
-						   newSeed.setLevel(e.getLevel()+1);
-						   newSeed.setInsertTime(new Timestamp(System.currentTimeMillis()));
-						   
-						   if (!seedsQueueDao.getIsExistSeed(newSeed)){
-							    SeedsQueueList.add(newSeed);
-						   }
-						   
-						  
-						   
-						   
-		               }
-					   
-					   try {
-							userFriendsDao.batchSaveUserFriends(UserFriendsList,batchSize);
-						    } catch (Exception e1) {
-							// TODO Auto-generated catch block
-						    	log.error("batchSaveUserFriends ERROR!"+e1.getMessage());	
-						    }
-					   
-					   try {
-							seedsQueueDao.batchSaveSeedsQueue(SeedsQueueList,batchSize);
-						} catch (Exception e1) {
-							// TODO Auto-generated catch block
-							log.error("batchSaveSeedsQueue ERROR!"+e1.getMessage());		
-						}
-					   
-					 
-					   
-					     //更新
-					      e.setIsFriendsInfo(e.getIsFriendsInfo()+1);
-					      e.setInsertTime(new Timestamp(System.currentTimeMillis()));
-					   try {
-						seedsQueueDao.update(e);
-					   } catch (Exception e1) {
-						// TODO Auto-generated catch block
-						log.error("SeedsQueue update ERROR!"+e1.getMessage());	
-					   }
-				   
-				   } catch (TwitterException te) {
-		            log.error("Failed to get friends' ids: " + te.getMessage());	          
-		           }
-				
-			}
-			
-			 endTimeLong = System.currentTimeMillis();
-			
-			 intervalTime =15*60*1000-(endTimeLong - startTimeLong);
-			
-			log.info("Sleep intervalTime: "+intervalTime/(1000*60)+" Minutes");
-			
-				try {
-					Thread.sleep(intervalTime);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					log.error("Sleep Error: " + e1.getMessage());	 
-				} 
-			
-		}
-		
-		
-	}
-	
-	/**
-	 * @function main
-	 * 
-	 * @param args
-	 * @author Dayong.Shen
-	 * @date 2013-6-6-下午11:28:58
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-	    PropertyConfigurator.configureAndWatch(Constant.LOG4J_PATH);
-		log.info("正在创建数据库连接和缓冲池...");
-	    AppContext.initAppCtx();
-		log.info("数据库连接已连接！缓冲池已建立");
-	
-		RelationCrawler crawler=(RelationCrawler) AppContext.appCtx.getBean("relationCrawler");
-		
-		if (args.length < 1) {
-                // consumer key/secret are not set in twitter4j.properties
-                System.out.println(
-                        "Usage: java isiteam.TwitterCrawler.mainApp.RelationCrawler [twitter4j-4.propertiesName]");
-                System.exit(-1);
-           
-        } 
-		
-		crawler.startCrawling(args[0]);
-
 	}
 
 }

@@ -51,49 +51,8 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 		return hibernateTemplate;
 	}
 
-	@Override
-	public List<SeedsQueue> getSeedsQueue(final int count) {
-		// TODO Auto-generated method stub
-		
-		try{
-			final String hql="from SeedsQueue order by isFriendsInfo ASC, level ASC";
-			List list=this.getHibernateTemplate().executeFind(new HibernateCallback() {
-				public Object doInHibernate(Session session)
-						throws HibernateException, SQLException {
-					Query query=session.createQuery(hql);
-					query.setFirstResult(0);
-					query.setMaxResults(count);
-					List list=query.list();
-					return list;
-				}
-			});
-			return list;
-		
-		}catch(Exception e){
-			log.error("getSeedsQueue ERROR!"+e.getMessage());
-			return null;
-		}
-	}
+	
 
-	@Override
-	public void save(SeedsQueue newSeed) {
-		// TODO Auto-generated method stub
-		try{
-			hibernateTemplate.save(newSeed);
-		}catch(Exception e){
-			log.error("SeedsQueue save ERROR!"+e.getMessage());			
-		}
-	}
-
-	@Override
-	public void update(SeedsQueue e) {
-		// TODO Auto-generated method stub
-		try{
-			hibernateTemplate.update(e);
-		}catch(Exception e1){
-			log.error("SeedsQueue update ERROR!"+e1.getMessage());			
-		}
-	}
 	
     public void batchSaveSeedsQueue(final List<SeedsQueue> seedsQueue,final int batchSize) {
         
@@ -152,5 +111,164 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 	    	return true;
 	    }
 	
+	}
+
+	@Override
+	public List<SeedsQueue> getSeedsQueueByisUserInfo(final int count) {
+		// TODO Auto-generated method stub
+		
+		try{
+			final String hql="from SeedsQueue where isDeal=1 order by isUserInfo ASC, level ASC";
+			List list=this.getHibernateTemplate().executeFind(new HibernateCallback() {
+				public Object doInHibernate(Session session)
+						throws HibernateException, SQLException {
+					Query query=session.createQuery(hql);
+					query.setFirstResult(0);
+					query.setMaxResults(count);
+					List list=query.list();
+					return list;
+				}
+			});
+			return list;
+		
+		}catch(Exception e){
+			log.error("getSeedsQueueByisUserInfo ERROR!"+e.getMessage());
+			return null;
+		}
+	}
+	
+	@Override
+	public List<SeedsQueue> getSeedsQueueByisFriendsInfo(final int count) {
+		// TODO Auto-generated method stub
+		
+		try{
+			final String hql="from SeedsQueue where isDeal=1 order by isFriendsInfo ASC, level ASC";
+			List list=this.getHibernateTemplate().executeFind(new HibernateCallback() {
+				public Object doInHibernate(Session session)
+						throws HibernateException, SQLException {
+					Query query=session.createQuery(hql);
+					query.setFirstResult(0);
+					query.setMaxResults(count);
+					List list=query.list();
+					return list;
+				}
+			});
+			return list;
+		
+		}catch(Exception e){
+			log.error("getSeedsQueueByisFriendsInfo ERROR!"+e.getMessage());
+			return null;
+		}
+	}
+	
+	@Override
+	public List<SeedsQueue> getSeedsQueueByisTweetsInfo(final int count) {
+		// TODO Auto-generated method stub
+		try{
+			final String hql="from SeedsQueue where isDeal=1 order by isTweetsInfo ASC, level ASC";
+			List list=this.getHibernateTemplate().executeFind(new HibernateCallback() {
+				public Object doInHibernate(Session session)
+						throws HibernateException, SQLException {
+					Query query=session.createQuery(hql);
+					query.setFirstResult(0);
+					query.setMaxResults(count);
+					List list=query.list();
+					return list;
+				}
+			});
+			return list;
+		
+		}catch(Exception e){
+			log.error("getSeedsQueueByisTweetsInfo ERROR!"+e.getMessage());
+			return null;
+		}
 	}   
+	
+	@Override
+	public void updateIsFriendsInfo(final SeedsQueue seed) {
+		// TODO Auto-generated method stub
+		final String hql="update SeedsQueue set isFriendsInfo = :friendsInfoNum, insertTime=:inserttime,  isDeal=:dealing where userId = :userid";
+		try{
+			 this.getHibernateTemplate().execute(new HibernateCallback<Object>() {
+		        	@Override
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {
+		        		
+		        		  Query query = session.createQuery(hql);
+		        		  query.setInteger("friendsInfoNum", seed.getIsFriendsInfo());
+		        		  query.setTimestamp("inserttime", seed.getInsertTime());
+		        		  query.setString("userid", seed.getUserId());
+		        		  query.setInteger("dealing", seed.getIsDeal());
+		        			  
+		        		  query.executeUpdate();
+		        		  
+		        		  return null;
+	
+					}
+				});
+		 
+		}catch(Exception e1){
+			log.error("updateIsFriendsInfo ERROR!"+e1.getMessage());			
+		} 
+	}
+
+	@Override
+	public void updateisUserInfo(final SeedsQueue seed) {
+		// TODO Auto-generated method stub
+		final String hql="update SeedsQueue set isUserInfo = :userInfoNum, insertTime=:inserttime,  isDeal=:dealing where userId = :userid";
+		try{
+			 this.getHibernateTemplate().execute(new HibernateCallback<Object>() {
+		        	@Override
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {
+		        		
+		        		  Query query = session.createQuery(hql);
+		        		  query.setInteger("userInfoNum", seed.getIsFriendsInfo());
+		        		  query.setTimestamp("inserttime", seed.getInsertTime());
+		        		  query.setString("userid", seed.getUserId());
+		        		  query.setInteger("dealing", seed.getIsDeal());
+		        			  
+		        		  query.executeUpdate();
+		        		  
+		        		  return null;
+	
+					}
+				});
+		 
+		}catch(Exception e1){
+			log.error("updateisUserInfo ERROR!"+e1.getMessage());			
+		} 
+	}
+
+    public void updateIsTweetsInfo(final SeedsQueue seed) {
+		// TODO Auto-generated method stub
+		final String hql="update SeedsQueue set isTweetsInfo = :tweetsInfoNum, insertTime=:inserttime,  isDeal=:dealing where userId = :userid";
+		try{
+			 this.getHibernateTemplate().execute(new HibernateCallback<Object>() {
+		        	@Override
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {
+		        		
+		        		  Query query = session.createQuery(hql);
+		        		  query.setInteger("tweetsInfoNum", seed.getIsTweetsInfo());
+		        		  query.setTimestamp("inserttime", seed.getInsertTime());
+		        		  query.setString("userid", seed.getUserId());
+		        		  query.setInteger("dealing", seed.getIsDeal());
+		        			  
+		        		  query.executeUpdate();
+		        		  
+		        		  return null;
+	
+					}
+				});
+		 
+		}catch(Exception e1){
+			log.error("updateIsTweetsInfo ERROR!"+e1.getMessage());			
+		} 
+	}
+
+
+
+
+
 }

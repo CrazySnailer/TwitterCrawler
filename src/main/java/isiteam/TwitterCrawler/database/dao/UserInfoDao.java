@@ -12,6 +12,10 @@
  
 package isiteam.TwitterCrawler.database.dao;
 
+import isiteam.TwitterCrawler.database.bean.UserInfo;
+
+import java.util.List;
+
 
 /**
  * @project Twitter
@@ -24,5 +28,9 @@ package isiteam.TwitterCrawler.database.dao;
  */
 
 public interface UserInfoDao {
+
+	void batchSaveUserInfoList(List<UserInfo> userInfoList, int batchSize);
+
+	boolean getIsExistUserInfo(UserInfo userInfo);
 
 }

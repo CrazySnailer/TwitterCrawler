@@ -103,14 +103,18 @@ public class UserFriendsDaoImpl implements UserFriendsDao {
 	}
 
 	@Override
-	public boolean getIsExistFriends(UserFriends newFriend) {
+	public boolean getIsExistFriends(final UserFriends newFriend) {
 		// TODO Auto-generated method stub
+			
+		final String hql="from UserFriends where userId = :userid and friendsId= :friendsid and crawledNum=:crawlednum";
 		
-		final String hql="from UserFriends where userId = '"+newFriend.getUserId() +"'"+" and friendsId= '"+newFriend.getFriendsId()+"' and crawledNum="+newFriend.getCrawledNum();
 		List list=this.getHibernateTemplate().executeFind(new HibernateCallback() {
 			public Object doInHibernate(Session session)
 					throws HibernateException, SQLException {
 				Query query=session.createQuery(hql);
+				query.setString("userid", newFriend.getUserId());
+				query.setString("friendsid", newFriend.getFriendsId());
+				query.setInteger("crawlednum", newFriend.getCrawledNum());
 				List list=query.list();
 				return list;
 			}

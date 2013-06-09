@@ -12,6 +12,10 @@
  
 package isiteam.TwitterCrawler.database.dao;
 
+import isiteam.TwitterCrawler.database.bean.TweetInfo;
+
+import java.util.List;
+
 
 /**
  * @project Twitter
@@ -24,5 +28,9 @@ package isiteam.TwitterCrawler.database.dao;
  */
 
 public interface TweetInfoDao {
+
+	void batchSaveTweetInfoList(List<TweetInfo> tweetInfoList, int batchSize);
+
+	boolean getIsExistTweet(TweetInfo oneTweet);
 
 }

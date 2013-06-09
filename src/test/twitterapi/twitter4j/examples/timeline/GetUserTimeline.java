@@ -20,8 +20,11 @@ import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
+import twitter4j.auth.AccessToken;
+import twitter4j.conf.PropertyConfiguration;
 
 import java.util.List;
+import java.util.Properties;
 
 /**
  * @author Yusuke Yamamoto - yusuke at mac.com
@@ -35,20 +38,28 @@ public class GetUserTimeline {
      */
     public static void main(String[] args) {
         // gets Twitter instance with default credentials
-        Twitter twitter = new TwitterFactory().getInstance();
+    	 Properties props = new Properties();
+         props.put(PropertyConfiguration.HTTP_PROXY_HOST, "127.0.0.1");
+ 		props.put(PropertyConfiguration.HTTP_PROXY_PORT, "8087");
+ 		props.put(PropertyConfiguration.OAUTH_CONSUMER_KEY,
+ 				"eEKgNmj5LZM1Y0s9w256A");
+ 		props.put(PropertyConfiguration.OAUTH_CONSUMER_SECRET,
+ 				"IZzKrkFVd2dsJkaKQCUFA5vHFI8cDjthj7hccXnM");
+ 		AccessToken token = new AccessToken(
+ 				"1346773026-x9FAnE5qFB3xjm47OU2puDSQiduMS7WDc3fdUX7",
+ 				"EOQC5Ejfx8CVy4y1ZBFgQbrSaQltsesULNm0rNHPDQ");
+ 		PropertyConfiguration conf = new PropertyConfiguration(props);
+        Twitter twitter = new TwitterFactory(conf).getInstance(token);
         try {
             List<Status> statuses;
             String user;
-            if (args.length == 1) {
-                user = args[0];
+
+                user ="spidershen";
                 statuses = twitter.getUserTimeline(user);
-            } else {
-                user = twitter.verifyCredentials().getScreenName();
-                statuses = twitter.getUserTimeline();
-            }
-            System.out.println("Showing @" + user + "'s user timeline.");
+            
+     
             for (Status status : statuses) {
-                System.out.println("@" + status.getUser().getScreenName() + " - " + status.getText());
+                System.out.println(status);
             }
         } catch (TwitterException te) {
             te.printStackTrace();
