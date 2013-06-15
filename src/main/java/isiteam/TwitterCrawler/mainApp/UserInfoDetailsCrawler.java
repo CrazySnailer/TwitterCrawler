@@ -12,6 +12,14 @@
  
 package isiteam.TwitterCrawler.mainApp;
 
+import isiteam.TwitterCrawler.database.bean.SeedsQueue;
+import isiteam.TwitterCrawler.database.bean.UserInfo;
+import isiteam.TwitterCrawler.database.dao.SeedsQueueDao;
+import isiteam.TwitterCrawler.database.dao.UserInfoDao;
+import isiteam.TwitterCrawler.util.AppContext;
+import isiteam.TwitterCrawler.util.CharUtil;
+import isiteam.TwitterCrawler.util.Constant;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -19,17 +27,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
-
-import isiteam.TwitterCrawler.database.bean.SeedsQueue;
-import isiteam.TwitterCrawler.database.bean.UserFriends;
-import isiteam.TwitterCrawler.database.bean.UserInfo;
-import isiteam.TwitterCrawler.database.dao.SeedsQueueDao;
-import isiteam.TwitterCrawler.database.dao.UserInfoDao;
-import isiteam.TwitterCrawler.util.AppContext;
-import isiteam.TwitterCrawler.util.CharUtil;
-import isiteam.TwitterCrawler.util.Constant;
 
 import javax.annotation.Resource;
 
@@ -38,7 +38,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 
-import twitter4j.IDs;
 import twitter4j.ResponseList;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
@@ -70,6 +69,17 @@ public class UserInfoDetailsCrawler {
 	private UserInfoDao userInfoDao;
 	
 	private static Properties props = new Properties();
+	
+	
+	private int myArrayIndexOf(long[] SeedsIdArr,long obj){
+		
+		for(int i=0;i<SeedsIdArr.length;i++){
+			if(SeedsIdArr[i]==obj){
+				return i;
+			}
+		}
+		return -1;
+	}
 	
 	@SuppressWarnings("deprecation")
 	private void startCrawling(String propertyName) {
@@ -117,14 +127,15 @@ public class UserInfoDetailsCrawler {
 				SeedsIdArr=new long[Queue.size()];
 				UserInfoList.clear();
 				
-				for(int j=0;j<Queue.size();j++){
-					SeedsIdArr[j]=Long.valueOf(Queue.get(Queue.size()-j-1).getUserId());
+				for(int j=0;j<Queue.size();j++){					
+					SeedsIdArr[j]=Long.valueOf(Queue.get(j).getUserId());//正序
 				}
 								
 				
 				try {
 					
 					ResponseList<User> users = twitter.lookupUsers(SeedsIdArr);
+					
 					
 					
 					
@@ -135,7 +146,7 @@ public class UserInfoDetailsCrawler {
 						isChinese=false;
 						try {
 							
-							if(CharUtil.ChinesePercent(user.getStatus().getText())>0.1){
+							if(CharUtil.ChinesePercent(user.getStatus().getText())>0.6){
 								isChinese=true;
 							}
 						} catch (Exception e1) {
@@ -143,7 +154,7 @@ public class UserInfoDetailsCrawler {
 							//e1.printStackTrace();							
 						}
 						
-	                    if((isChinese||user.getLang().startsWith("zh-")||CharUtil.ChinesePercent(user.getDescription())>0.1)&&!user.getLang().startsWith("ja")){
+	                    if((isChinese||user.getLang().startsWith("zh-")||CharUtil.ChinesePercent(user.getDescription())>0.6)&&!user.getLang().startsWith("ja")){
 	                    	//为中文用户
 	                    	UserInfo userInfo=new UserInfo();
 	    					
@@ -165,7 +176,8 @@ public class UserInfoDetailsCrawler {
 							userInfo.setFavouritesCount(user.getFavouritesCount());
 							userInfo.setIsVerified(user.isVerified()? 1 : 0);
 							userInfo.setIsGeoEnabled(user.isGeoEnabled()? 1 : 0);
-							userInfo.setCrawledNum(Queue.get(h).getIsUserInfo());//指定爬行次数
+							userInfo.setCrawledNum(Queue.get(myArrayIndexOf(SeedsIdArr,user.getId())).getIsUserInfo());//指定爬行次数
+														
 							
 							try {
 								userInfo.setCurrentStatuscreatedAt(new Timestamp(user.getStatus().getCreatedAt().getTime()));
@@ -187,7 +199,7 @@ public class UserInfoDetailsCrawler {
 						 }else{//为其他语言用户,则下次不予采集
 							 
 							 
-							 Queue.get(h).setIsDeal(0);//设置禁止采集
+							 Queue.get(myArrayIndexOf(SeedsIdArr,user.getId())).setIsDeal(0);//设置禁止采集
 							 
 							 
 						 }//end if

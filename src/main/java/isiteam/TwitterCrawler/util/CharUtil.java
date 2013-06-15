@@ -95,6 +95,18 @@ public class CharUtil {
 		Pattern pattern = Pattern.compile(reg);
 		return pattern.matcher(str.trim()).find();
 	}
+	
+	
+	//
+	public static boolean isJapaneseByREG(String str) {
+		if (str == null) {
+			return false;
+		}
+		Pattern pattern = Pattern.compile("[\\u0800-\\u4e00]+");
+		return pattern.matcher(str.trim()).find();
+	}
+	
+	
 
 	/**
 	 * @function main
@@ -122,9 +134,11 @@ public class CharUtil {
 		} */
 		
 		
-		String str="Don't fucking piss me off. 96's ✿ Instagram - queenieong";
+		String str="Writer, Freelancer, Planning officer";
 		
 		System.out.println(ChinesePercent(str));
+		
+		System.out.println(isJapaneseByREG(""));
 		
 	}//end main
 
