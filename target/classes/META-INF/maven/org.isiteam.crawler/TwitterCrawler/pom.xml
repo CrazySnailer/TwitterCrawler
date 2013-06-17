@@ -30,18 +30,19 @@
     
   
 	        <!-- 设置变量:用于统一管理Library的版本 -->
-	        <javax.version>6.0</javax.version>
-	        <javax.servlet.version>1.2</javax.servlet.version>
+	        <jdk.version>1.6</jdk.version>	    
 	        <junit.version>3.8.2</junit.version>
-	        <log4j.version>1.2.16</log4j.version>
-	        <org.aspectj.version>1.6.2</org.aspectj.version>
-	        <net.sf.ehcache.version>2.3.2</net.sf.ehcache.version>
-	        <org.slf4j.version>1.6.1</org.slf4j.version>
-	        <mysql.jdbc.version>5.1.15</mysql.jdbc.version>
-	        <org.hibernate.entitymanager.version>3.6.3.Final</org.hibernate.entitymanager.version>
-	        <org.springframework.version>3.2.3.RELEASE</org.springframework.version>
-	        <com.jolbox.bonecp.version>0.7.1.RELEASE</com.jolbox.bonecp.version>
-	        <org.codehaus.jackson.version>1.7.4</org.codehaus.jackson.version>
+	        <log4j.version>1.2.17</log4j.version>
+	        <org.aspectj.version>1.6.11</org.aspectj.version>	     
+	        <org.slf4j.version>1.5.2</org.slf4j.version>
+	        <mysql.jdbc.version>5.1.25</mysql.jdbc.version>
+	        <org.hibernate.version>3.3.1.GA</org.hibernate.version>
+	        <org.springframework.version>3.2.3.RELEASE</org.springframework.version>	  
+	        <commons.logging.version>1.1.1</commons.logging.version>
+	        <org.twitter4j.version>3.0.3</org.twitter4j.version>
+	        <cglib.version>2.2</cglib.version>
+	        <commons.dbcp.version>1.4</commons.dbcp.version>
+	        <org.apache.maven.plugins.version>2.2-beta-5</org.apache.maven.plugins.version>
 
   </properties>
 
@@ -49,17 +50,17 @@
     <dependency>
         <groupId>org.twitter4j</groupId>
         <artifactId>twitter4j-async</artifactId>
-        <version>3.0.3</version>
+        <version>${org.twitter4j.version}</version>
     </dependency>
     <dependency>
         <groupId>org.twitter4j</groupId>
         <artifactId>twitter4j-stream</artifactId>
-        <version>3.0.3</version>
+        <version>${org.twitter4j.version}</version>
     </dependency>   
     <dependency>
     	<groupId>org.twitter4j</groupId>
     	<artifactId>twitter4j-core</artifactId>
-    	<version>3.0.3</version>
+    	<version>${org.twitter4j.version}</version>
     </dependency>
    
     
@@ -67,27 +68,27 @@
     <dependency>
 		<groupId>junit</groupId>
 		<artifactId>junit</artifactId>
-		<version>4.11</version>
+		<version>${junit.version}</version>
 		<scope>test</scope>
 	</dependency>    
     <dependency>
     	<groupId>commons-logging</groupId>
     	<artifactId>commons-logging</artifactId>
-    	<version>1.1.1</version>
+    	<version>${commons.logging.version}</version>
     </dependency>
 
 
     <dependency>
     	<groupId>log4j</groupId>
     	<artifactId>log4j</artifactId>
-    	<version>1.2.17</version>
+    	<version>${log4j.version}</version>
     	<scope>runtime</scope>
     </dependency>
     
     <dependency>
 	<groupId>org.slf4j</groupId>
 	<artifactId>slf4j-log4j12</artifactId>
-	<version>1.5.2</version>
+	<version>${org.slf4j.version}</version>
    </dependency>
     
 <!-- spring framework -->
@@ -149,70 +150,139 @@
     <!-- Spring AOP dependency -->
     
     <dependency>
-    	        <groupId>cglib</groupId>
+    	<groupId>cglib</groupId>
 		<artifactId>cglib</artifactId>
-		<version>2.2</version>
+		<version>${cglib.version}</version>
 	</dependency>
 	
-	
 	<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjrt</artifactId>
-			<version>1.6.11</version>
-		</dependency>
- 
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjweaver</artifactId>
-			<version>1.6.11</version>
-		</dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjrt</artifactId>
+		<version>${org.aspectj.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjweaver</artifactId>
+		<version>${org.aspectj.version}</version>
+	</dependency>
 	
   <!-- MySQL database driver -->
   <dependency>
     	<groupId>mysql</groupId>
     	<artifactId>mysql-connector-java</artifactId>
-    	<version>5.1.25</version>
+    	<version>${mysql.jdbc.version}</version>
     </dependency>
     
-    	<!-- Hibernate framework -->
-   
-
-
+   <!-- Hibernate framework -->
 	<dependency>
 		<groupId>org.hibernate</groupId>
 		<artifactId>hibernate-annotations</artifactId>
-		<version>3.3.1.GA</version>
+		<version>${org.hibernate.version}</version>
 	</dependency>
 	<dependency>
 		<groupId>org.hibernate</groupId>
 		<artifactId>hibernate-entitymanager</artifactId>
-		<version>3.3.1.ga</version>
+		<version>${org.hibernate.version}</version>
 	</dependency>
 	<dependency>
 		<groupId>org.hibernate</groupId>
 		<artifactId>hibernate-core</artifactId>
-		<version>3.3.1.GA</version>
+		<version>${org.hibernate.version}</version>
 	</dependency>
 
 	
 	<!-- Hibernate library dependecy start -->
 	
-	<!-- Hibernate library dependecy end -->
+	
 	<dependency>
 	   <groupId>commons-dbcp</groupId>
 	   <artifactId>commons-dbcp</artifactId>
-   <version>1.4</version>
-   
-</dependency>
+       <version>${commons.dbcp.version}</version>
+    </dependency>
+    
+    <!-- Hibernate library dependecy end -->
+    
 	<dependency>
 		<groupId>org.apache.maven.plugins</groupId>
 		<artifactId>maven-assembly-plugin</artifactId>
-		<version>2.2-beta-5</version>
+		<version>${org.apache.maven.plugins.version}</version>
 		<type>maven-plugin</type>
 	</dependency>
   </dependencies>
   
+	<build>
+	  <plugins>
+	  
+	  
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>2.3.2</version>
+			<configuration>
+				<source>${jdk.version}</source>
+				<target>${jdk.version}</target>
+			</configuration>
+		</plugin>
+		
+		
+		        <!-- The configuration of maven-jar-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.1</version>
+                <!-- The configuration of the plugin -->
+                <configuration>
+                    <!-- Configuration of the archiver -->
+                    <archive>
+                        <!-- Manifest specific configuration -->
+                        <manifest>
+                            <!-- Classpath is added to the manifest of the created jar file. -->
+                            <addClasspath>true</addClasspath>
+                            <!--
+                               Configures the classpath prefix. This configuration option is
+                               used to specify that all needed libraries are found under lib/
+                               directory.
+                           -->
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <!-- Specifies the main class of the application -->
+                            <mainClass>isiteam.TwitterCrawler.mainApp.RelationCrawler</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+		
+		
+		  <!-- The configuration of maven-assembly-plugin -->
+		<plugin>
+	    	<groupId>org.apache.maven.plugins</groupId>
+	   		 <artifactId>maven-assembly-plugin</artifactId>
+	   		  <!-- The configuration of the plugin -->
+		    <configuration>
+				<finalName>TwitterRelationCrawler</finalName>
+				
+				 <!-- Specifies the configuration file of the assembly plugin -->
+				<descriptors>
+				<descriptor>src/main/assembly/package.xml</descriptor>
+				</descriptors>	
+			</configuration>
+	    
+	      <executions>
+	        <execution>
+		        <id>make-assembly</id>
+		        	<phase>package</phase>
+			        <goals>
+			          <goal>single</goal>
+			        </goals>
+	        </execution>
+          </executions>
+  </plugin>
   
+</plugins>
+</build> 	
+	
+	
+	  
  <repositories>
    
     <repository>
@@ -229,57 +299,5 @@
     </repository> 
     
 </repositories>
-  
-
-    
-   
-
-  
-	<build>
-	  <plugins>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-compiler-plugin</artifactId>
-			<version>2.3.2</version>
-			<configuration>
-				<source>1.6</source>
-				<target>1.6</target>
-			</configuration>
-		</plugin>
-		
-		<plugin>
-	    <groupId>org.apache.maven.plugins</groupId>
-	    <artifactId>maven-assembly-plugin</artifactId>
-	    <configuration>
-				<finalName>TwitterRelationCrawler</finalName>
-				
-				<descriptorRefs>
-					<descriptorRef>jar-with-dependencies</descriptorRef>
-				</descriptorRefs>
-				
-				<descriptors>
-				<descriptor>src/main/assembly/package.xml</descriptor>
-				</descriptors>
-			
-				<archive>
-	            <manifest>
-	              <mainClass>isiteam.TwitterCrawler.mainApp.RelationCrawler</mainClass>
-	            </manifest>
-	            </archive>
-	
-			</configuration>
-	    
-	    <executions>
-	      <execution>
-	        <id>make-assembly</id>
-	        <phase>package</phase>
-	        <goals>
-	          <goal>single</goal>
-	        </goals>
-	      </execution>
-    </executions>
-  </plugin>
-</plugins>
-</build> 	
 	
 </project>

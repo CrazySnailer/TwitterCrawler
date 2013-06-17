@@ -25,8 +25,8 @@ public class OSUtil {
      
     private static final File versionFile = new File("/proc/version");   
     private static String linuxVersion = "2.6";  
-    private static OperatingSystemMXBean osmxb = (OperatingSystemMXBean) ManagementFactory   
-            .getOperatingSystemMXBean(); 
+   /* private static OperatingSystemMXBean osmxb = (OperatingSystemMXBean) ManagementFactory   
+            .getOperatingSystemMXBean(); */
    
     private static int MB = 1024*1024;  
     /**  
@@ -147,7 +147,7 @@ public class OSUtil {
 	   long maxMemory = Runtime.getRuntime().maxMemory() / MB;  
 	   return maxMemory;
    }
-// 总的物理内存   
+/*  // 总的物理内存   
    public static long getTotalPhysicalMemorySize(){
 	   long totalMemorySize = osmxb.getTotalPhysicalMemorySize() / MB; 
 	   return totalMemorySize;
@@ -164,6 +164,8 @@ public class OSUtil {
            / MB;   
    return usedMemory;
    }
+   
+   */
    // 获得线程总数   
    public static int getTotalThread(){
 	   ThreadGroup parentThread;   
@@ -374,9 +376,9 @@ public class OSUtil {
         System.out.println("剩余内存= " + OSUtil.getFreeMemory() + " MB");   
         System.out.println("最大可使用内存= " + OSUtil.getMaxMemory() + " MB");   
          
-        System.out.println("总的物理内存= " + OSUtil.getTotalPhysicalMemorySize() + " MB");   
+       /* System.out.println("总的物理内存= " + OSUtil.getTotalPhysicalMemorySize() + " MB");   
         System.out.println("剩余的物理内存= " + OSUtil.getFreePhysicalMemorySize() + " MB");   
-        System.out.println("已使用的物理内存= " + OSUtil.getUsedPhysicalMemorySize()+ " MB");   
+        System.out.println("已使用的物理内存= " + OSUtil.getUsedPhysicalMemorySize()+ " MB");   */
         System.out.println("线程总数= " + OSUtil.getTotalThread()+ " 个");   
     }   
     

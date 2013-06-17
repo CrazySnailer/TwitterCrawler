@@ -91,6 +91,8 @@ public class UserInfoDetailsCrawler {
         		props.getProperty("oauth.accessToken"),
         		props.getProperty("oauth.accessTokenSecret"));
         
+        log.info("props's accessToken is: "+props.getProperty("oauth.accessToken"));
+        
 		PropertyConfiguration conf = new PropertyConfiguration(props);
 		Twitter twitter = new TwitterFactory(conf).getInstance(token);
 		
