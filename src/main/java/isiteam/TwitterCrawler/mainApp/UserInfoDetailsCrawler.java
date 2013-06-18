@@ -238,7 +238,7 @@ public class UserInfoDetailsCrawler {
 							log.info("Sleep intervalTime: "+users.getRateLimitStatus().getSecondsUntilReset()/60+" Minutes");
 							
 							try {
-								Thread.sleep(users.getRateLimitStatus().getSecondsUntilReset()*1000);
+								Thread.sleep(users.getRateLimitStatus().getSecondsUntilReset()*1000+6000);
 							} catch (InterruptedException e1) {
 								// TODO Auto-generated catch block
 								log.error("Sleep Error: " + e1.getMessage());	 
@@ -254,7 +254,7 @@ public class UserInfoDetailsCrawler {
 		            	log.info("Sleep intervalTime: "+te.getRateLimitStatus().getSecondsUntilReset()/60+" Minutes");
 						
 						try {
-							Thread.sleep(te.getRateLimitStatus().getSecondsUntilReset()*1000);
+							Thread.sleep(te.getRateLimitStatus().getSecondsUntilReset()*1000+6000);
 						} catch (InterruptedException e1) {
 							// TODO Auto-generated catch block
 							log.error("Sleep Error: " + e1.getMessage());	 

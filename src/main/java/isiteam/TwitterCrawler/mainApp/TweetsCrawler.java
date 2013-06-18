@@ -194,7 +194,7 @@ public class TweetsCrawler {
 								log.info("Sleep intervalTime: "+((TwitterResponse) statuses).getRateLimitStatus().getSecondsUntilReset()/60+" Minutes");
 								
 								try {
-									Thread.sleep(((TwitterResponse) statuses).getRateLimitStatus().getSecondsUntilReset()*1000);
+									Thread.sleep(((TwitterResponse) statuses).getRateLimitStatus().getSecondsUntilReset()*1000+6000);
 								} catch (InterruptedException e1) {
 									// TODO Auto-generated catch block
 									log.error("Sleep Error: " + e1.getMessage());	 
@@ -209,7 +209,7 @@ public class TweetsCrawler {
 			            	log.info("Sleep intervalTime: "+te.getRateLimitStatus().getSecondsUntilReset()/60+" Minutes");
 							
 							try {
-								Thread.sleep(te.getRateLimitStatus().getSecondsUntilReset()*1000);
+								Thread.sleep(te.getRateLimitStatus().getSecondsUntilReset()*1000+6000);
 							} catch (InterruptedException e1) {
 								// TODO Auto-generated catch block
 								log.error("Sleep Error: " + e1.getMessage());	 
