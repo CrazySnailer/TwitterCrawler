@@ -25,6 +25,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -67,6 +68,7 @@ public class UserInfoDetailsCrawler {
 	
 	@Resource
 	private UserInfoDao userInfoDao;
+	
 	
 	private static Properties props = new Properties();
 	
@@ -160,17 +162,21 @@ public class UserInfoDetailsCrawler {
 	                    	//为中文用户
 	                    	UserInfo userInfo=new UserInfo();
 	    					
-							userInfo.setAllText( String.valueOf(user));//存入String还有问题						
+							
+							userInfo.setAllText(CharUtil.withNonBmpStripped(String.valueOf(user)));
+							
 							userInfo.setUserId(String.valueOf(user.getId()));
 							userInfo.setScreenName(user.getScreenName());
-							userInfo.setName(user.getName());
-							userInfo.setLocation(user.getLocation());
-							userInfo.setTimeZone(user.getTimeZone());
-							userInfo.setLang(user.getLang());
-							userInfo.setDescription(user.getDescription());
+							userInfo.setName(CharUtil.withNonBmpStripped(user.getName()));
+							userInfo.setLocation(CharUtil.withNonBmpStripped(user.getLocation()));
+							userInfo.setTimeZone(CharUtil.withNonBmpStripped(user.getTimeZone()));
+							userInfo.setLang(CharUtil.withNonBmpStripped(user.getLang()));
+							
+							userInfo.setDescription(CharUtil.withNonBmpStripped(user.getDescription()));
+							
 							userInfo.setCreatedAt(new Timestamp(user.getCreatedAt().getTime()));
 							userInfo.setProfileImageUrl(user.getProfileImageURL());
-							userInfo.setWebExtendurl(user.getURL());
+							userInfo.setWebExtendurl(CharUtil.withNonBmpStripped(user.getURL()));
 							userInfo.setIsProtected(user.isProtected()? 1 : 0);
 							userInfo.setFollowersCount(user.getFollowersCount());
 							userInfo.setFriendsCount(user.getFriendsCount());
@@ -227,6 +233,7 @@ public class UserInfoDetailsCrawler {
 						 
 						  try {
 								seedsQueueDao.updateisUserInfo(oneSeed);
+								
 							   } catch (Exception e1) {
 								// TODO Auto-generated catch block
 								log.error("updateisUserInfo ERROR!"+e1.getMessage());	
@@ -271,11 +278,7 @@ public class UserInfoDetailsCrawler {
 			
 		}//end startCrawling
 		
-		
-		
 
-
-	
 	
 	/**
 	 * @function main

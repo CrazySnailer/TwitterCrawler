@@ -28,6 +28,7 @@ import isiteam.TwitterCrawler.database.bean.UserInfo;
 import isiteam.TwitterCrawler.database.dao.SeedsQueueDao;
 import isiteam.TwitterCrawler.database.dao.TweetInfoDao;
 import isiteam.TwitterCrawler.util.AppContext;
+import isiteam.TwitterCrawler.util.CharUtil;
 import isiteam.TwitterCrawler.util.Constant;
 
 import javax.annotation.Resource;
@@ -125,19 +126,18 @@ public class TweetsCrawler {
 							 TweetInfo oneTweet=new TweetInfo();
 							 
 							 try {
-								oneTweet.setAllText(String.valueOf(se));
+								oneTweet.setAllText(CharUtil.withNonBmpStripped(String.valueOf(se)));
 							} catch (Exception e1) {
 								// TODO Auto-generated catch block
 								//e1.printStackTrace();
 							}
-							 
-							 log.info(String.valueOf(se));
+							 							 
 							 oneTweet.setTweetId(String.valueOf(se.getId()));
 							 oneTweet.setUserId(oneSeed.getUserId());
 							 oneTweet.setScreenName(se.getUser().getScreenName());
 							 oneTweet.setCreatedAt(new Timestamp(se.getCreatedAt().getTime()));
-							 oneTweet.setText(se.getText());
-							 oneTweet.setSource(se.getSource());
+							 oneTweet.setText(CharUtil.withNonBmpStripped(se.getText()));
+							 oneTweet.setSource(CharUtil.withNonBmpStripped(se.getSource()));
 							 oneTweet.setIsFavorited(se.isFavorited() ? 1 : 0);
 							 oneTweet.setGeoLocation(String.valueOf(se.getGeoLocation()));
 							 oneTweet.setPlace(String.valueOf(se.getPlace()));

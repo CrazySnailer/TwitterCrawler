@@ -64,6 +64,8 @@ public class UserInfoDaoImpl implements UserInfoDao {
 						} catch (Exception e1) {
 							// TODO Auto-generated catch block
 							//e1.printStackTrace();
+							log.error(userInfoList.get(i).getAllText());
+							log.error(e1.getMessage());
 						}         
 	                    if (i % batchSize == 0) {  
 	                        try {

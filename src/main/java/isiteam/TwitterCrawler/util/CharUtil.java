@@ -27,6 +27,20 @@ import java.util.regex.Pattern;
 
 public class CharUtil {
 	
+	/**
+	 * @function withNonBmpStripped
+	 * 
+	 * 过滤掉4个字节以上的utf-8编码，只保留3个字节一下的编码
+	 * 
+	 * @param inString
+	 * @author Dayong.Shen
+	 * @date 2013-6-9-上午8:26:40
+	 */	
+	public static String withNonBmpStripped( String inString ) {
+		 if (inString == null) return null;
+	    return inString.replaceAll( "[\\ud800-\\udfff]", "");
+	}
+	
 	
 	public static float ChinesePercent(String str){
 		

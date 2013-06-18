@@ -200,9 +200,9 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 		        		  query.setString("userid", seed.getUserId());
 		        		  query.setInteger("dealing", seed.getIsDeal());
 		        			  
-		        		  query.executeUpdate();
+		        		  return query.executeUpdate();
 		        		  
-		        		  return null;
+		        		 
 	
 					}
 				});
@@ -216,35 +216,35 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 	public void updateisUserInfo(final SeedsQueue seed) {
 		// TODO Auto-generated method stub
 		final String hql="update SeedsQueue set isUserInfo = :userInfoNum, insertTime=:inserttime,  isDeal=:dealing where userId = :userid";
-		try{
-			 this.getHibernateTemplate().execute(new HibernateCallback<Object>() {
+		try{                                    
+			getHibernateTemplate().execute(new HibernateCallback<Object>() {
 		        	@Override
 					public Object doInHibernate(Session session)
 							throws HibernateException, SQLException {
 		        		
 		        		  Query query = session.createQuery(hql);
-		        		  query.setInteger("userInfoNum", seed.getIsFriendsInfo());
+		        		  query.setInteger("userInfoNum", seed.getIsUserInfo());
 		        		  query.setTimestamp("inserttime", seed.getInsertTime());
 		        		  query.setString("userid", seed.getUserId());
 		        		  query.setInteger("dealing", seed.getIsDeal());
 		        			  
-		        		  query.executeUpdate();
-		        		  
-		        		  return null;
+		        		  return query.executeUpdate();
 	
 					}
 				});
 		 
 		}catch(Exception e1){
-			log.error("updateisUserInfo ERROR!"+e1.getMessage());			
-		} 
+			log.error("updateisUserInfo ERROR!"+e1.getMessage());
+			
+		}
+		
 	}
 
     public void updateIsTweetsInfo(final SeedsQueue seed) {
 		// TODO Auto-generated method stub
 		final String hql="update SeedsQueue set isTweetsInfo = :tweetsInfoNum, insertTime=:inserttime,  isDeal=:dealing where userId = :userid";
 		try{
-			 this.getHibernateTemplate().execute(new HibernateCallback<Object>() {
+			 getHibernateTemplate().execute(new HibernateCallback<Object>() {
 		        	@Override
 					public Object doInHibernate(Session session)
 							throws HibernateException, SQLException {
@@ -254,10 +254,8 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 		        		  query.setTimestamp("inserttime", seed.getInsertTime());
 		        		  query.setString("userid", seed.getUserId());
 		        		  query.setInteger("dealing", seed.getIsDeal());
-		        			  
-		        		  query.executeUpdate();
 		        		  
-		        		  return null;
+		        		  return  query.executeUpdate();
 	
 					}
 				});
