@@ -113,12 +113,19 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 	
 	}
 
+	
+	 /* (non-Javadoc)
+	 * @see isiteam.TwitterCrawler.database.dao.SeedsQueueDao#getSeedsQueueByisUserInfo(int)
+	 * 
+	 * 采集种子队列中的用户基本信息，进一步判断是否为中文用户
+	 * 
+	 */
 	@Override
 	public List<SeedsQueue> getSeedsQueueByisUserInfo(final int count) {
 		// TODO Auto-generated method stub
 		
 		try{
-			final String hql="from SeedsQueue where isDeal=1 order by isUserInfo ASC, level ASC";
+			final String hql="from SeedsQueue order by isUserInfo ASC, level ASC";//ascending order 升序
 			List list=this.getHibernateTemplate().executeFind(new HibernateCallback() {
 				public Object doInHibernate(Session session)
 						throws HibernateException, SQLException {
