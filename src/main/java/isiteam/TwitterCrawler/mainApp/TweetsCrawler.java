@@ -122,7 +122,7 @@ public class TweetsCrawler {
 				         page.setCount(200);
 						 List<Status> statuses=twitter.getUserTimeline(Long.valueOf(oneSeed.getUserId()),page);
 						
-						 log.info("采集用户博文返回个数: "+ statuses.size());	
+						 log.info("采集用户 "+oneSeed.getUserId()+" 博文返回个数: "+ statuses.size());	
 						 
 						 for(Status se:statuses){
 							 TweetInfo oneTweet=new TweetInfo();

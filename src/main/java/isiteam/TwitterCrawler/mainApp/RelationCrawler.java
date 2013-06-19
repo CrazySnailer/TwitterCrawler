@@ -132,7 +132,7 @@ public class RelationCrawler {
 				try {
 					ids = twitter.getFriendsIDs(Long.valueOf(e.getUserId()), cursor);
 					
-					log.info("采集用户好友返回个数: "+ids.getIDs().length);
+					log.info("采集用户 "+e.getUserId()+" 好友返回个数: "+ids.getIDs().length);
 					
 					//清除列表，以进一步添加数据
 					SeedsQueueList.clear();
