@@ -57,7 +57,7 @@ public final class GetFriendsIDs {
             System.out.println("Listing following ids.");
            // do {
               
-                    ids = twitter.getFriendsIDs(14581421, cursor);
+                    ids = twitter.getFriendsIDs(73243474, cursor);
                 
                 for (long id : ids.getIDs()) {
                     System.out.println(id);

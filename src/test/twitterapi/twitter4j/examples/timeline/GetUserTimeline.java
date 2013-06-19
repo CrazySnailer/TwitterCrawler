@@ -52,9 +52,9 @@ public class GetUserTimeline {
         Twitter twitter = new TwitterFactory(conf).getInstance(token);
         try {
             List<Status> statuses;
-            String user;
+            long user;
 
-                user ="spidershen";
+                user =103848976;
                 statuses = twitter.getUserTimeline(user);
             
      

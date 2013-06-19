@@ -48,14 +48,19 @@ public final class LookupUsers {
 		PropertyConfiguration conf = new PropertyConfiguration(props);
 		
     	
-        if (args.length < 1) {
+       /* if (args.length < 1) {
             System.out.println(
                     "Usage: java twitter4j.examples.user.LookupUsers [screen name[,screen name..]]");
             System.exit(-1);
-        }
+        }*/
+		
+		//long[] SeedsIdArr={269691987,1007224032,1007276611,979338925,1007244240,988716427,999833587,979697214,1007295210,986023082,1007278273,985993465,1007284285,986268912,1007263549,1007273042,1007261364,1007281382,1005809539,1005288272,1006446860,1007277361,1007273977,983408172,1000102142,1007271631,1007262235,999865303,1007265636,1007258688,1007269482,1006183352,1007276136,1007266340,999627937,983990532,991196732,1004806519,1005089677,1007893122,1007289811,1007250830,994741045,988228382,999132738,1005720456,1007405899,1000015644,1007769324,990253500,1007280949,1007769990,984111487,1007780024,1007769894,1007769330,1007771082,1007941232,1007788981,999637886,1007780156,1007770374,1004712301,1007779850,986677592,1007787049,984328213,1007808530,1007831473,990867949,997000620,980058674,1007821117,994616695,1005682178,986324340,989123827,1007828929,1004642208,1007823140,1007825455,983867810,1007808894,1007802834,1007804244,1007817212,1007822732,1007827501,1007813228,999739878,1007828023,993307867,1007831112,998776850,995364438,1007844812,980065056,1007832546,1007842514,1007844152};
+		
+		long[] SeedsIdArr={103848976};
+		
         try {
         	Twitter twitter = new TwitterFactory(conf).getInstance(token);
-            ResponseList<User> users = twitter.lookupUsers(args[0].split(","));
+            ResponseList<User> users = twitter.lookupUsers(SeedsIdArr);
             for (User user : users) {
             	
             	System.out.println(user);
@@ -66,7 +71,7 @@ public final class LookupUsers {
 //                    System.out.println("@" + user.getScreenName());
 //                }
             }
-            System.out.println("Successfully looked up users [" + args[0] + "].");
+            System.out.println("Successfully looked up users [" + SeedsIdArr + "].");
             System.exit(0);
         } catch (TwitterException te) {
             te.printStackTrace();

@@ -122,15 +122,17 @@ public class RelationCrawler {
 			if(Queue==null){//已经取不到数据
 				continue;
 			}
-			log.info("Queue Size: "+Queue.size());
+			log.info("采集用户好友队列 Queue Size: "+Queue.size());
 
 			
 			for(SeedsQueue e:Queue){
 				
-				log.info("采集用户: "+e.getUserId());
+				log.info("采集用户好友: "+e.getUserId());
 				
 				try {
 					ids = twitter.getFriendsIDs(Long.valueOf(e.getUserId()), cursor);
+					
+					log.info("采集用户好友返回个数: "+ids.getIDs().length);
 					
 					//清除列表，以进一步添加数据
 					SeedsQueueList.clear();
@@ -220,7 +222,19 @@ public class RelationCrawler {
 							// TODO Auto-generated catch block
 							log.error("Sleep Error: " + e1.getMessage());	 
 						} 
-		            }//End If
+		            }else{		            	
+		            	//更新
+					      e.setIsFriendsInfo(e.getIsFriendsInfo()+1);
+					      e.setInsertTime(new Timestamp(System.currentTimeMillis()));
+					   try {
+						seedsQueueDao.updateIsFriendsInfo(e);
+					   } catch (Exception e1) {
+						// TODO Auto-generated catch block
+						log.error("SeedsQueue update ERROR!"+e1.getMessage());	
+					   }
+		            	
+		            }//end else
+		            
 		           }//End Catch
 				
 			}

@@ -126,7 +126,8 @@ public class UserInfoDetailsCrawler {
 				if(Queue==null){//已经取不到数据
 					continue;
 				}
-				log.info("Queue Size: "+Queue.size());
+				log.info("采集用户信息队列 Queue Size: "+Queue.size());
+				
 				
 				SeedsIdArr=new long[Queue.size()];
 				UserInfoList.clear();
@@ -134,11 +135,14 @@ public class UserInfoDetailsCrawler {
 				for(int j=0;j<Queue.size();j++){					
 					SeedsIdArr[j]=Long.valueOf(Queue.get(j).getUserId());//正序
 				}
-								
+				
+				log.info("采集用户信息队列 Queue Content: "+ Arrays.toString(SeedsIdArr));
 				
 				try {
 					
 					ResponseList<User> users = twitter.lookupUsers(SeedsIdArr);
+					
+				log.info("采集用户信息返回个数: "+ users.size());	
 					
 					
 					
@@ -266,7 +270,27 @@ public class UserInfoDetailsCrawler {
 							// TODO Auto-generated catch block
 							log.error("Sleep Error: " + e1.getMessage());	 
 						} 
-		            }//End If	          
+		            }else{//If a requested user is unknown, suspended, or deleted, then that user will not be returned in the results list.
+		             		
+		            		 //更新Seed中的UserInfo字段 					 
+							 for(SeedsQueue oneSeed :Queue){
+								//更新
+								 oneSeed.setIsUserInfo(oneSeed.getIsUserInfo()+1);
+								 oneSeed.setInsertTime(new Timestamp(System.currentTimeMillis()));
+								 
+								  try {
+										seedsQueueDao.updateisUserInfo(oneSeed);
+										
+									   } catch (Exception e1) {
+										// TODO Auto-generated catch block
+										log.error("updateisUserInfo ERROR!"+e1.getMessage());	
+									   }
+		            		
+		            	}//end for
+		            	
+		            }//end else
+		            
+		            
 		           }//end Catch
 
 				

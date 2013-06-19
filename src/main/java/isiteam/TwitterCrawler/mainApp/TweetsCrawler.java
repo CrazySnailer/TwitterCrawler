@@ -109,11 +109,11 @@ public class TweetsCrawler {
 				if(Queue==null){//已经取不到数据
 					continue;
 				}
-				log.info("Queue Size: "+Queue.size());
+				log.info("采集用户博文队列 Queue Size: "+Queue.size());
 				
 				for(SeedsQueue oneSeed:Queue){
 					
-					log.info("采集用户: "+oneSeed.getUserId());
+					log.info("采集用户博文: "+oneSeed.getUserId());
 					
 					TweetInfoList.clear();
 					try {
@@ -121,6 +121,8 @@ public class TweetsCrawler {
 						
 				         page.setCount(200);
 						 List<Status> statuses=twitter.getUserTimeline(Long.valueOf(oneSeed.getUserId()),page);
+						
+						 log.info("采集用户博文返回个数: "+ statuses.size());	
 						 
 						 for(Status se:statuses){
 							 TweetInfo oneTweet=new TweetInfo();
@@ -214,7 +216,20 @@ public class TweetsCrawler {
 								// TODO Auto-generated catch block
 								log.error("Sleep Error: " + e1.getMessage());	 
 							} 
-			            }//End If
+			            }else{
+			            	
+			            	 //更新
+							  oneSeed.setIsTweetsInfo(oneSeed.getIsTweetsInfo()+1);
+							  oneSeed.setInsertTime(new Timestamp(System.currentTimeMillis()));
+							  
+							   try {
+								seedsQueueDao.updateIsTweetsInfo(oneSeed);
+							   } catch (Exception e1) {
+								// TODO Auto-generated catch block
+								log.error("updateIsTweetsInfo ERROR!"+e1.getMessage());	
+							   }
+			            	
+			            }
 			           }//End Catch
 					
 					
