@@ -160,7 +160,7 @@ public class RelationCrawler {
 						   newSeed.setIsFriendsInfo(0);
 						   newSeed.setIsTweetsInfo(0);
 						   newSeed.setIsUserInfo(0);
-						   newSeed.setIsDeal(1);
+						   newSeed.setIsDeal(0);
 						   newSeed.setLevel(e.getLevel()+1);
 						   newSeed.setInsertTime(new Timestamp(System.currentTimeMillis()));
 						   

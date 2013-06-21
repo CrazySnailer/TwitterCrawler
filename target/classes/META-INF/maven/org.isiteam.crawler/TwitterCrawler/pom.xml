@@ -247,7 +247,7 @@
                            -->
                             <classpathPrefix>lib/</classpathPrefix>
                             <!-- Specifies the main class of the application -->
-                            <mainClass>isiteam.TwitterCrawler.mainApp.RelationCrawler</mainClass>
+                            <mainClass>isiteam.TwitterCrawler.mainApp.TweetsCrawler</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -260,7 +260,7 @@
 	   		 <artifactId>maven-assembly-plugin</artifactId>
 	   		  <!-- The configuration of the plugin -->
 		    <configuration>
-				<finalName>TwitterRelationCrawler</finalName>
+				<finalName>TweetsCrawler</finalName>
 				
 				 <!-- Specifies the configuration file of the assembly plugin -->
 				<descriptors>

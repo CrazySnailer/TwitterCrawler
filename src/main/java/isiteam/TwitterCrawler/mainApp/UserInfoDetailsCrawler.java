@@ -206,12 +206,12 @@ public class UserInfoDetailsCrawler {
 								   UserInfoList.add(userInfo);
 							   }
 							
-							
+							   Queue.get(myArrayIndexOf(SeedsIdArr,user.getId())).setIsDeal(1);//设置中文用户
 							
 						 }else{//为其他语言用户,则下次不予采集
 							 
 							 
-							 Queue.get(myArrayIndexOf(SeedsIdArr,user.getId())).setIsDeal(0);//设置禁止采集
+							 Queue.get(myArrayIndexOf(SeedsIdArr,user.getId())).setIsDeal(2);//设置禁止采集
 							 
 							 
 						 }//end if
