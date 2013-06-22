@@ -125,7 +125,7 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 		// TODO Auto-generated method stub
 		
 		try{
-			final String hql="from SeedsQueue where isDeal!=2 order by isUserInfo ASC, level ASC";//ascending order 升序
+			final String hql="from SeedsQueue where isDeal!=2 and isUserStatus=0 order by isUserInfo ASC, level ASC";//ascending order 升序
 			List list=this.getHibernateTemplate().executeFind(new HibernateCallback() {
 				public Object doInHibernate(Session session)
 						throws HibernateException, SQLException {
@@ -136,7 +136,27 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 					return list;
 				}
 			});
-			return list;
+			
+			if(list.size()>0){//取到数据
+				//将取到的数据的isUserStatus 标志位置为1，表示这次采集（还是放在更新的时候做吧）
+				
+				return list;
+			}else{//没有取到数据
+				//需将所有种子节点的isUserStatus重新置0，后取种子节点
+				
+				getHibernateTemplate().execute(new HibernateCallback<Object>() {
+		        	@Override
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {		        		
+		        		  Query query = session.createQuery("update SeedsQueue set isUserStatus = 0");
+		        		  return query.executeUpdate();
+					}
+				});
+				
+				return getSeedsQueueByisUserInfo(count);
+				
+			}//end if
+			
 		
 		}catch(Exception e){
 			log.error("getSeedsQueueByisUserInfo ERROR!"+e.getMessage());
@@ -149,7 +169,7 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 		// TODO Auto-generated method stub
 		
 		try{
-			final String hql="from SeedsQueue where isDeal=1 order by isFriendsInfo ASC, level ASC";
+			final String hql="from SeedsQueue where isDeal=1 and isFriendsStatus=0 order by isFriendsInfo ASC, level ASC";
 			List list=this.getHibernateTemplate().executeFind(new HibernateCallback() {
 				public Object doInHibernate(Session session)
 						throws HibernateException, SQLException {
@@ -160,7 +180,26 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 					return list;
 				}
 			});
-			return list;
+
+			if(list.size()>0){//取到数据
+				//将取到的数据的isFriendsStatus 标志位置为1，表示这次采集（还是放在更新的时候做吧）
+				
+				return list;
+			}else{//没有取到数据
+				//需将所有种子节点的isFriendsStatus重新置0，后取种子节点
+				
+				this.getHibernateTemplate().execute(new HibernateCallback<Object>() {
+		        	@Override
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {		        		
+		        		  Query query = session.createQuery("update SeedsQueue set isFriendsStatus = 0");
+		        		  return query.executeUpdate();
+					}
+				});
+				
+				return getSeedsQueueByisFriendsInfo(count);
+				
+			}//end if
 		
 		}catch(Exception e){
 			log.error("getSeedsQueueByisFriendsInfo ERROR!"+e.getMessage());
@@ -172,7 +211,7 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 	public List<SeedsQueue> getSeedsQueueByisTweetsInfo(final int count) {
 		// TODO Auto-generated method stub
 		try{
-			final String hql="from SeedsQueue where isDeal=1 order by isTweetsInfo ASC, level ASC";
+			final String hql="from SeedsQueue where isDeal=1 and isTweetsStatus=0 order by isTweetsInfo ASC, level ASC";
 			List list=this.getHibernateTemplate().executeFind(new HibernateCallback() {
 				public Object doInHibernate(Session session)
 						throws HibernateException, SQLException {
@@ -183,7 +222,26 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 					return list;
 				}
 			});
-			return list;
+
+			if(list.size()>0){//取到数据
+				//将取到的数据的isTweetsStatus 标志位置为1，表示这次采集（还是放在更新的时候做吧）
+				
+				return list;
+			}else{//没有取到数据
+				//需将所有种子节点的isTweetsStatus重新置0，后取种子节点
+				
+				getHibernateTemplate().execute(new HibernateCallback<Object>() {
+		        	@Override
+					public Object doInHibernate(Session session)
+							throws HibernateException, SQLException {		        		
+		        		  Query query = session.createQuery("update SeedsQueue set isTweetsStatus = 0");
+		        		  return query.executeUpdate();
+					}
+				});
+				
+				return getSeedsQueueByisTweetsInfo(count);
+				
+			}//end if
 		
 		}catch(Exception e){
 			log.error("getSeedsQueueByisTweetsInfo ERROR!"+e.getMessage());
@@ -194,7 +252,7 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 	@Override
 	public void updateIsFriendsInfo(final SeedsQueue seed) {
 		// TODO Auto-generated method stub
-		final String hql="update SeedsQueue set isFriendsInfo = :friendsInfoNum, insertTime=:inserttime,  isDeal=:dealing where userId = :userid";
+		final String hql="update SeedsQueue set isFriendsInfo = :friendsInfoNum, isFriendsStatus= :friendsStatus , insertTime=:inserttime, isDeal=:dealing where userId = :userid";
 		try{
 			 this.getHibernateTemplate().execute(new HibernateCallback<Object>() {
 		        	@Override
@@ -203,6 +261,7 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 		        		
 		        		  Query query = session.createQuery(hql);
 		        		  query.setInteger("friendsInfoNum", seed.getIsFriendsInfo());
+		        		  query.setBoolean("friendsStatus", seed.getIsFriendsStatus());
 		        		  query.setTimestamp("inserttime", seed.getInsertTime());
 		        		  query.setString("userid", seed.getUserId());
 		        		  query.setInteger("dealing", seed.getIsDeal());
@@ -222,7 +281,7 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 	@Override
 	public void updateisUserInfo(final SeedsQueue seed) {
 		// TODO Auto-generated method stub
-		final String hql="update SeedsQueue set isUserInfo = :userInfoNum, insertTime=:inserttime,  isDeal=:dealing where userId = :userid";
+		final String hql="update SeedsQueue set isUserInfo = :userInfoNum,isUserStatus=:userStatus, insertTime=:inserttime,  isDeal=:dealing where userId = :userid";
 		try{                                    
 			getHibernateTemplate().execute(new HibernateCallback<Object>() {
 		        	@Override
@@ -231,6 +290,7 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 		        		
 		        		  Query query = session.createQuery(hql);
 		        		  query.setInteger("userInfoNum", seed.getIsUserInfo());
+		        		  query.setBoolean("userStatus", seed.getIsUserStatus());
 		        		  query.setTimestamp("inserttime", seed.getInsertTime());
 		        		  query.setString("userid", seed.getUserId());
 		        		  query.setInteger("dealing", seed.getIsDeal());
@@ -249,7 +309,7 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 
     public void updateIsTweetsInfo(final SeedsQueue seed) {
 		// TODO Auto-generated method stub
-		final String hql="update SeedsQueue set isTweetsInfo = :tweetsInfoNum, insertTime=:inserttime,  isDeal=:dealing where userId = :userid";
+		final String hql="update SeedsQueue set isTweetsInfo = :tweetsInfoNum, isTweetsStatus=:tweetsStatus ,insertTime=:inserttime,  isDeal=:dealing where userId = :userid";
 		try{
 			 getHibernateTemplate().execute(new HibernateCallback<Object>() {
 		        	@Override
@@ -258,6 +318,7 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 		        		
 		        		  Query query = session.createQuery(hql);
 		        		  query.setInteger("tweetsInfoNum", seed.getIsTweetsInfo());
+		        		  query.setBoolean("tweetsStatus", seed.getIsTweetsStatus());
 		        		  query.setTimestamp("inserttime", seed.getInsertTime());
 		        		  query.setString("userid", seed.getUserId());
 		        		  query.setInteger("dealing", seed.getIsDeal());

@@ -20,8 +20,11 @@ public class SeedsQueue implements java.io.Serializable {
 	private Integer id;
 	private String userId;
 	private Integer isUserInfo;
+	private Boolean isUserStatus;
 	private Integer isFriendsInfo;
+	private Boolean isFriendsStatus;
 	private Integer isTweetsInfo;
+	private Boolean isTweetsStatus;
 	private Integer level;
 	private Integer isDeal;
 	private Timestamp insertTime;
@@ -33,13 +36,17 @@ public class SeedsQueue implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public SeedsQueue(String userId, Integer isUserInfo, Integer isFriendsInfo,
-			Integer isTweetsInfo, Integer level, Integer isDeal,
-			Timestamp insertTime) {
+	public SeedsQueue(String userId, Integer isUserInfo, Boolean isUserStatus,
+			Integer isFriendsInfo, Boolean isFriendsStatus,
+			Integer isTweetsInfo, Boolean isTweetsStatus, Integer level,
+			Integer isDeal, Timestamp insertTime) {
 		this.userId = userId;
 		this.isUserInfo = isUserInfo;
+		this.isUserStatus = isUserStatus;
 		this.isFriendsInfo = isFriendsInfo;
+		this.isFriendsStatus = isFriendsStatus;
 		this.isTweetsInfo = isTweetsInfo;
+		this.isTweetsStatus = isTweetsStatus;
 		this.level = level;
 		this.isDeal = isDeal;
 		this.insertTime = insertTime;
@@ -75,6 +82,15 @@ public class SeedsQueue implements java.io.Serializable {
 		this.isUserInfo = isUserInfo;
 	}
 
+	@Column(name = "isUserStatus")
+	public Boolean getIsUserStatus() {
+		return this.isUserStatus;
+	}
+
+	public void setIsUserStatus(Boolean isUserStatus) {
+		this.isUserStatus = isUserStatus;
+	}
+
 	@Column(name = "isFriendsInfo")
 	public Integer getIsFriendsInfo() {
 		return this.isFriendsInfo;
@@ -84,6 +100,15 @@ public class SeedsQueue implements java.io.Serializable {
 		this.isFriendsInfo = isFriendsInfo;
 	}
 
+	@Column(name = "isFriendsStatus")
+	public Boolean getIsFriendsStatus() {
+		return this.isFriendsStatus;
+	}
+
+	public void setIsFriendsStatus(Boolean isFriendsStatus) {
+		this.isFriendsStatus = isFriendsStatus;
+	}
+
 	@Column(name = "isTweetsInfo")
 	public Integer getIsTweetsInfo() {
 		return this.isTweetsInfo;
@@ -91,6 +116,15 @@ public class SeedsQueue implements java.io.Serializable {
 
 	public void setIsTweetsInfo(Integer isTweetsInfo) {
 		this.isTweetsInfo = isTweetsInfo;
+	}
+
+	@Column(name = "isTweetsStatus")
+	public Boolean getIsTweetsStatus() {
+		return this.isTweetsStatus;
+	}
+
+	public void setIsTweetsStatus(Boolean isTweetsStatus) {
+		this.isTweetsStatus = isTweetsStatus;
 	}
 
 	@Column(name = "level")

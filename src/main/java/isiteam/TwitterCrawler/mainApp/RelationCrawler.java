@@ -33,6 +33,7 @@ import isiteam.TwitterCrawler.database.bean.UserFriends;
 import isiteam.TwitterCrawler.database.dao.SeedsQueueDao;
 import isiteam.TwitterCrawler.database.dao.UserFriendsDao;
 import isiteam.TwitterCrawler.util.AppContext;
+import isiteam.TwitterCrawler.util.AppToken;
 import isiteam.TwitterCrawler.util.Constant;
 
 
@@ -78,21 +79,21 @@ public class RelationCrawler {
 	@Resource
 	private	UserFriendsDao userFriendsDao;
 	
-	private static Properties props = new Properties();
+	private static AppToken currentAppToken = new AppToken();
 	
+	private static Twitter twitter;
 	
-	public void startCrawling(String propertyName){
+	private static List<AppToken> appTokenList=new ArrayList<AppToken>();
+	
+
+	
+	public void startCrawling(String AppTokenFilePath){
 		
-		GetAccessToken(Constant.TwitterKey_PATH,propertyName);
+		initialAccessTokenList(Constant.TwitterKey_PATH,AppTokenFilePath);
+		
+		getOneToken();
 			
-        AccessToken token = new AccessToken(
-        		props.getProperty("oauth.accessToken"),
-        		props.getProperty("oauth.accessTokenSecret"));
-        
-        log.info("props's accessToken is: "+props.getProperty("oauth.accessToken"));
-        
-		PropertyConfiguration conf = new PropertyConfiguration(props);
-		Twitter twitter = new TwitterFactory(conf).getInstance(token);
+      
 		
 		
 		int Count=15;
@@ -160,6 +161,11 @@ public class RelationCrawler {
 						   newSeed.setIsFriendsInfo(0);
 						   newSeed.setIsTweetsInfo(0);
 						   newSeed.setIsUserInfo(0);
+						   
+						   newSeed.setIsFriendsStatus(false);
+						   newSeed.setIsTweetsStatus(false);
+						   newSeed.setIsUserStatus(false);
+						
 						   newSeed.setIsDeal(0);
 						   newSeed.setLevel(e.getLevel()+1);
 						   newSeed.setInsertTime(new Timestamp(System.currentTimeMillis()));
@@ -188,6 +194,7 @@ public class RelationCrawler {
 					   
 					     //更新
 					      e.setIsFriendsInfo(e.getIsFriendsInfo()+1);
+					      e.setIsFriendsStatus(true);
 					      e.setInsertTime(new Timestamp(System.currentTimeMillis()));
 					   try {
 						seedsQueueDao.updateIsFriendsInfo(e);
@@ -198,33 +205,28 @@ public class RelationCrawler {
 					   
 					   
 						if(ids.getRateLimitStatus().getRemaining()==0){
-							log.info("Sleep intervalTime: "+ids.getRateLimitStatus().getSecondsUntilReset()/60+" Minutes");
 							
-							try {
-								Thread.sleep(ids.getRateLimitStatus().getSecondsUntilReset()*1000+6000);
-							} catch (InterruptedException e1) {
-								// TODO Auto-generated catch block
-								log.error("Sleep Error: " + e1.getMessage());	 
-							} 
+							currentAppToken.setEndTime(System.currentTimeMillis());
+							currentAppToken.setResetTime(ids.getRateLimitStatus().getSecondsUntilReset()*1000);
+							
+							getOneToken();
 							
 						}
 						   
 				   
 				   } catch (TwitterException te) {
 		            log.error("Failed to get friends' ids: " + te.getMessage());	 
-		            if(te.getStatusCode()==429){
-		            	
-		            	log.info("Sleep intervalTime: "+te.getRateLimitStatus().getSecondsUntilReset()/60+" Minutes");
+		            if(te.getStatusCode()==429){	
 						
-						try {
-							Thread.sleep(te.getRateLimitStatus().getSecondsUntilReset()*1000+6000);
-						} catch (InterruptedException e1) {
-							// TODO Auto-generated catch block
-							log.error("Sleep Error: " + e1.getMessage());	 
-						} 
+						currentAppToken.setEndTime(System.currentTimeMillis());
+						currentAppToken.setResetTime(te.getRateLimitStatus().getSecondsUntilReset()*1000);
+						
+						getOneToken();
+						
 		            }else{		            	
 		            	//更新
 					      e.setIsFriendsInfo(e.getIsFriendsInfo()+1);
+					      e.setIsFriendsStatus(true);
 					      e.setInsertTime(new Timestamp(System.currentTimeMillis()));
 					   try {
 						seedsQueueDao.updateIsFriendsInfo(e);
@@ -248,6 +250,8 @@ public class RelationCrawler {
 		
 	}
 	
+
+
 	/**
 	 * @function main
 	 * 
@@ -267,23 +271,29 @@ public class RelationCrawler {
 		if (args.length < 1) {
                 // consumer key/secret are not set in twitter4j.properties
                 System.out.println(
-                        "Usage: java isiteam.TwitterCrawler.mainApp.RelationCrawler [twitter4j-4.propertiesName]");
+                        "Usage: java isiteam.TwitterCrawler.mainApp.RelationCrawler [twitter4j.properties filePathName]");
                 System.exit(-1);
            
         } 
 		
-		crawler.startCrawling(args[0]);
+		
+			crawler.startCrawling(args[0]);
+		
+		
+		
 
 	}// end main
 	
-public void GetAccessTokenList(String filePath){
+   public void initialAccessTokenList(String filePath,String fileName){
 		
+	   filePath=filePath+File.separator +fileName;
 		
 		final String extend_name = ".properties";
 		
 		File dir = new File(filePath);
 		if(!dir.isDirectory()){
-			log.info("不是有效的文件夹目录!");
+			log.info("不是有效的文件夹目录!"+filePath);
+			System.exit(-1);
 			return;
 		}
 		// 所有的文件和目录名
@@ -301,7 +311,9 @@ public void GetAccessTokenList(String filePath){
 	      // 文件名
 	    	log.info(children[i]);
 	      
-	      	File file = new File(filePath+"\\"+children[i]);
+	      	File file = new File(filePath+File.separator +children[i]);
+	      	
+	      	AppToken appToken=new AppToken();
 	        Properties prop = new Properties();
 	        InputStream is = null;
 	        OutputStream os = null;
@@ -314,17 +326,25 @@ public void GetAccessTokenList(String filePath){
 	            }
 	          
 	            if (null == prop.getProperty("oauth.consumerKey")
-	                        && null == prop.getProperty("oauth.consumerSecret")
-	                        &&null==prop.getProperty("HTTP_PROXY_HOST")
-	                        &&null==prop.getProperty("HTTP_PROXY_PORT")) {
+                        && null == prop.getProperty("oauth.consumerSecret")
+                        &&null==prop.getProperty("http.proxyHost")
+                        &&null==prop.getProperty("http.proxyPort")
+                        &&null==prop.getProperty("oauth.accessToken")
+                        &&null==prop.getProperty("oauth.accessTokenSecret")) {
 	                    // consumer key/secret are not set in twitter4j.properties
 	                	log.info("Invalid Twitter Properties");
-	                    System.exit(-1);
-	                }	            
+	                    //System.exit(-1);
+	                }	      
+	            
+	            appToken.setProps(prop);
+	            appToken.setEndTime(0);
+	            appToken.setResetTime(0);
+	            
+	            appTokenList.add(appToken);
 	           
 	        } catch (IOException ioe) {
 	            ioe.printStackTrace();
-	            System.exit(-1);
+	            //System.exit(-1);
 	        } finally {
 	            if (is != null) {
 	                try {
@@ -343,62 +363,67 @@ public void GetAccessTokenList(String filePath){
 	    }//end for
 		
 		
-	}
+	}//end initialAccessTokenList
 	
-	
-	
-   public void GetAccessToken(String filePath,String propertyName){		
-		
-
-		File file = new File(filePath,propertyName);
-		if(!file.exists()){
-			log.info("文件不存在！");
+	private void getOneToken() {
+		// TODO Auto-generated method stub
+		if(appTokenList.size()==0){
+			log.info("appTokenList 为空");
+			System.exit(-1);
 			return;
 		}
 		
-	//        Properties prop = new Properties();
-	        InputStream is = null;
-	        OutputStream os = null;
-	     
-	        try {
-	        	
-	            if (file.exists()) {
-	                is = new FileInputStream(file);
-	                props.load(is);
-	            }
-	          
-	            if (null == props.getProperty("oauth.consumerKey")
-	                        && null == props.getProperty("oauth.consumerSecret")
-	                        &&null==props.getProperty("http.proxyHost")
-	                        &&null==props.getProperty("http.proxyPort")
-	                        &&null==props.getProperty("oauth.accessToken")
-	                        &&null==props.getProperty("oauth.accessTokenSecret")) {
-	                    // consumer key/secret are not set in twitter4j.properties
-	                	log.info("Invalid Twitter Properties");
-	                    System.exit(-1);
-	                }	            
-	           
-	        } catch (IOException ioe) {
-	            ioe.printStackTrace();
-	            System.exit(-1);
-	        } finally {
-	            if (is != null) {
-	                try {
-	                    is.close();
-	                } catch (IOException ignore) {
-	                }
-	            }
-	            if (os != null) {
-	                try {
-	                    os.close();
-	                } catch (IOException ignore) {
-	                }
-	            }
-	        }
-	      
+		if(!currentAppToken.getProps().isEmpty()){//非初始状态,将此appToken重新置 endTime ResetTime
+			
+			//在appTokenList中找到isUse为true的appToken
+			for(AppToken myapp:appTokenList){
+				
+				if(myapp.getProps()==currentAppToken.getProps()){
+					myapp=currentAppToken;//新置 endTime ResetTime
+				}//end if				
+			}//end for			
+		}//end if
+		
+		long currentTime=System.currentTimeMillis()+1000;//milliseconds
+		
+		//找出差值最大的		
+		long maxInterval=Long.MIN_VALUE;
+		
+		for(AppToken myapp:appTokenList){
+			
+			long temp=currentTime-myapp.getEndTime()-myapp.getResetTime();
+			
+			if(temp>maxInterval){
+				maxInterval=temp;
+				currentAppToken=myapp;
+			}
+			
+		}
+		
+		//根据maxInterval判断是否Sleep还是直接用
+		if(maxInterval<0){
+			//Sleep一段时间			
+			log.info("Sleep intervalTime: "+Math.abs(maxInterval)/60000+" Minutes");
+			
+			try {
+				Thread.sleep(Math.abs(maxInterval)+6000);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				log.error("Sleep Error: " + e1.getMessage());	 
+			} 
+		}
+		
+		  AccessToken token = new AccessToken(
+				  currentAppToken.getProps().getProperty("oauth.accessToken"),
+				  currentAppToken.getProps().getProperty("oauth.accessTokenSecret"));
+	        
+	        log.info("props's accessToken is: "+currentAppToken.getProps().getProperty("oauth.accessToken"));
+	        
+			PropertyConfiguration conf = new PropertyConfiguration(currentAppToken.getProps());
+			twitter = new TwitterFactory(conf).getInstance(token);	
+		
+	}//end getOneToken
 	
-		
-		
-	}
+  
 
 }

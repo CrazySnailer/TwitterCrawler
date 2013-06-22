@@ -17,11 +17,13 @@ import isiteam.TwitterCrawler.database.bean.UserInfo;
 import isiteam.TwitterCrawler.database.dao.SeedsQueueDao;
 import isiteam.TwitterCrawler.database.dao.UserInfoDao;
 import isiteam.TwitterCrawler.util.AppContext;
+import isiteam.TwitterCrawler.util.AppToken;
 import isiteam.TwitterCrawler.util.CharUtil;
 import isiteam.TwitterCrawler.util.Constant;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -43,6 +45,7 @@ import twitter4j.ResponseList;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
+import twitter4j.TwitterResponse;
 import twitter4j.User;
 import twitter4j.auth.AccessToken;
 import twitter4j.conf.PropertyConfiguration;
@@ -69,8 +72,11 @@ public class UserInfoDetailsCrawler {
 	@Resource
 	private UserInfoDao userInfoDao;
 	
+	private static AppToken currentAppToken = new AppToken();
 	
-	private static Properties props = new Properties();
+	private static Twitter twitter;
+	
+	private static List<AppToken> appTokenList=new ArrayList<AppToken>();
 	
 	
 	private int myArrayIndexOf(long[] SeedsIdArr,long obj){
@@ -84,19 +90,12 @@ public class UserInfoDetailsCrawler {
 	}
 	
 	@SuppressWarnings("deprecation")
-	private void startCrawling(String propertyName) {
+	private void startCrawling(String AppTokenFilePath) {
 		// TODO Auto-generated method stub
 		
-		GetAccessToken(Constant.TwitterKey_PATH,propertyName);
+        initialAccessTokenList(Constant.TwitterKey_PATH,AppTokenFilePath);
 		
-        AccessToken token = new AccessToken(
-        		props.getProperty("oauth.accessToken"),
-        		props.getProperty("oauth.accessTokenSecret"));
-        
-        log.info("props's accessToken is: "+props.getProperty("oauth.accessToken"));
-        
-		PropertyConfiguration conf = new PropertyConfiguration(props);
-		Twitter twitter = new TwitterFactory(conf).getInstance(token);
+		getOneToken();
 		
 		int Count=100;
 		int batchSize=100;		
@@ -233,6 +232,7 @@ public class UserInfoDetailsCrawler {
 					 for(SeedsQueue oneSeed :Queue){
 						//更新
 						 oneSeed.setIsUserInfo(oneSeed.getIsUserInfo()+1);
+						 oneSeed.setIsUserStatus(true);
 						 oneSeed.setInsertTime(new Timestamp(System.currentTimeMillis()));
 						 
 						  try {
@@ -246,14 +246,11 @@ public class UserInfoDetailsCrawler {
 					 }
 					 
 						if(users.getRateLimitStatus().getRemaining()==0){
-							log.info("Sleep intervalTime: "+users.getRateLimitStatus().getSecondsUntilReset()/60+" Minutes");
+														
+							currentAppToken.setEndTime(System.currentTimeMillis());
+							currentAppToken.setResetTime(users.getRateLimitStatus().getSecondsUntilReset()*1000);
 							
-							try {
-								Thread.sleep(users.getRateLimitStatus().getSecondsUntilReset()*1000+6000);
-							} catch (InterruptedException e1) {
-								// TODO Auto-generated catch block
-								log.error("Sleep Error: " + e1.getMessage());	 
-							} 
+							getOneToken();
 							
 						}
 					
@@ -262,20 +259,18 @@ public class UserInfoDetailsCrawler {
 		            log.error("Failed to lookup Users: " + te.getMessage());	 
 		            if(te.getStatusCode()==429){
 		            	
-		            	log.info("Sleep intervalTime: "+te.getRateLimitStatus().getSecondsUntilReset()/60+" Minutes");
+		            	currentAppToken.setEndTime(System.currentTimeMillis());
+						currentAppToken.setResetTime(te.getRateLimitStatus().getSecondsUntilReset()*1000);
 						
-						try {
-							Thread.sleep(te.getRateLimitStatus().getSecondsUntilReset()*1000+6000);
-						} catch (InterruptedException e1) {
-							// TODO Auto-generated catch block
-							log.error("Sleep Error: " + e1.getMessage());	 
-						} 
+						getOneToken();
+						
 		            }else{//If a requested user is unknown, suspended, or deleted, then that user will not be returned in the results list.
 		             		
 		            		 //更新Seed中的UserInfo字段 					 
 							 for(SeedsQueue oneSeed :Queue){
 								//更新
 								 oneSeed.setIsUserInfo(oneSeed.getIsUserInfo()+1);
+								 oneSeed.setIsUserStatus(true);
 								 oneSeed.setInsertTime(new Timestamp(System.currentTimeMillis()));
 								 
 								  try {
@@ -324,7 +319,7 @@ public class UserInfoDetailsCrawler {
 		if (args.length < 1) {
                 // consumer key/secret are not set in twitter4j.properties
                 System.out.println(
-                        "Usage: java isiteam.TwitterCrawler.mainApp.UserInfoDetailsCrawler [twitter4j-4.propertiesName]");
+                        "Usage: java isiteam.TwitterCrawler.mainApp.UserInfoDetailsCrawler [twitter4j.properties filePathName]");
                 System.exit(-1);
            
         } 
@@ -332,17 +327,38 @@ public class UserInfoDetailsCrawler {
 		crawler.startCrawling(args[0]);
 
 	}
-
-	   public void GetAccessToken(String filePath,String propertyName){		
+	
+	public void initialAccessTokenList(String filePath,String fileName){
+		
+		   filePath=filePath+File.separator +fileName;
 			
-
-			File file = new File(filePath,propertyName);
-			if(!file.exists()){
-				log.info("文件不存在！");
+			final String extend_name = ".properties";
+			
+			File dir = new File(filePath);
+			if(!dir.isDirectory()){
+				log.info("不是有效的文件夹目录!"+filePath);
+				System.exit(-1);
 				return;
 			}
-			
-		//        Properties prop = new Properties();
+			// 所有的文件和目录名
+		    String[] children=null;
+		    
+		    // 可以指定返回文件列表的过滤条件,返回那些以extend_name开头的文件名
+		    FilenameFilter filter = new FilenameFilter() {
+		      public boolean accept(File dir, String name) {
+		        return name.endsWith(extend_name);
+		      }
+		    };
+		    children = dir.list(filter);
+		    
+		    for (int i = 0; i < children.length; i++) {
+		      // 文件名
+		    	log.info(children[i]);
+		      
+		      	File file = new File(filePath+File.separator +children[i]);
+		      	
+		      	AppToken appToken=new AppToken();
+		        Properties prop = new Properties();
 		        InputStream is = null;
 		        OutputStream os = null;
 		     
@@ -350,23 +366,29 @@ public class UserInfoDetailsCrawler {
 		        	
 		            if (file.exists()) {
 		                is = new FileInputStream(file);
-		                props.load(is);
+		                prop.load(is);
 		            }
 		          
-		            if (null == props.getProperty("oauth.consumerKey")
-		                        && null == props.getProperty("oauth.consumerSecret")
-		                        &&null==props.getProperty("http.proxyHost")
-		                        &&null==props.getProperty("http.proxyPort")
-		                        &&null==props.getProperty("oauth.accessToken")
-		                        &&null==props.getProperty("oauth.accessTokenSecret")) {
+		            if (null == prop.getProperty("oauth.consumerKey")
+	                        && null == prop.getProperty("oauth.consumerSecret")
+	                        &&null==prop.getProperty("http.proxyHost")
+	                        &&null==prop.getProperty("http.proxyPort")
+	                        &&null==prop.getProperty("oauth.accessToken")
+	                        &&null==prop.getProperty("oauth.accessTokenSecret")) {
 		                    // consumer key/secret are not set in twitter4j.properties
 		                	log.info("Invalid Twitter Properties");
-		                    System.exit(-1);
-		                }	            
+		                    //System.exit(-1);
+		                }	      
+		            
+		            appToken.setProps(prop);
+		            appToken.setEndTime(0);
+		            appToken.setResetTime(0);
+		            
+		            appTokenList.add(appToken);
 		           
 		        } catch (IOException ioe) {
 		            ioe.printStackTrace();
-		            System.exit(-1);
+		            //System.exit(-1);
 		        } finally {
 		            if (is != null) {
 		                try {
@@ -382,9 +404,70 @@ public class UserInfoDetailsCrawler {
 		            }
 		        }
 		      
+		    }//end for
+			
+			
+		}//end initialAccessTokenList
 		
+		private void getOneToken() {
+			// TODO Auto-generated method stub
+			if(appTokenList.size()==0){
+				log.info("appTokenList 为空");
+				System.exit(-1);
+				return;
+			}
 			
+			if(!currentAppToken.getProps().isEmpty()){//非初始状态,将此appToken重新置 endTime ResetTime
+				
+				//在appTokenList中找到isUse为true的appToken
+				for(AppToken myapp:appTokenList){
+					
+					if(myapp.getProps()==currentAppToken.getProps()){
+						myapp=currentAppToken;//新置 endTime ResetTime
+					}//end if				
+				}//end for			
+			}//end if
 			
-		}
+			long currentTime=System.currentTimeMillis()+1000;//milliseconds
+			
+			//找出差值最大的		
+			long maxInterval=Long.MIN_VALUE;
+			
+			for(AppToken myapp:appTokenList){
+				
+				long temp=currentTime-myapp.getEndTime()-myapp.getResetTime();
+				
+				if(temp>maxInterval){
+					maxInterval=temp;
+					currentAppToken=myapp;
+				}
+				
+			}
+			
+			//根据maxInterval判断是否Sleep还是直接用
+			if(maxInterval<0){
+				//Sleep一段时间			
+				log.info("Sleep intervalTime: "+Math.abs(maxInterval)/60000+" Minutes");
+				
+				try {
+					Thread.sleep(Math.abs(maxInterval)+6000);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					log.error("Sleep Error: " + e1.getMessage());	 
+				} 
+			}
+			
+			  AccessToken token = new AccessToken(
+					  currentAppToken.getProps().getProperty("oauth.accessToken"),
+					  currentAppToken.getProps().getProperty("oauth.accessTokenSecret"));
+		        
+		        log.info("props's accessToken is: "+currentAppToken.getProps().getProperty("oauth.accessToken"));
+		        
+				PropertyConfiguration conf = new PropertyConfiguration(currentAppToken.getProps());
+				twitter = new TwitterFactory(conf).getInstance(token);	
+			
+		}//end getOneToken
+
+
 
 }

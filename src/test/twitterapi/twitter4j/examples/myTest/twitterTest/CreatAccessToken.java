@@ -86,8 +86,8 @@ public class CreatAccessToken {
 	          
 	            if (null == prop.getProperty("oauth.consumerKey")
 	                        && null == prop.getProperty("oauth.consumerSecret")
-	                        &&null==prop.getProperty("HTTP_PROXY_HOST")
-	                        &&null==prop.getProperty("HTTP_PROXY_PORT")) {
+	                        &&null==prop.getProperty("http.proxyPort")
+	                        &&null==prop.getProperty("http.proxyHost")) {
 	                    // consumer key/secret are not set in twitter4j.properties
 	                	log.info("Invalid Twitter Properties");
 	                    System.exit(-1);
