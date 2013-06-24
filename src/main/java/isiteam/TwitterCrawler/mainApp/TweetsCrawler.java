@@ -226,6 +226,10 @@ public class TweetsCrawler {
 							   }
 			            	
 			            }
+			           }catch(Exception ote){
+			        	   
+			        	   log.error("Tweets Crawler Other ERROR!"+ote.getMessage());  
+			        	   
 			           }//End Catch
 					
 					

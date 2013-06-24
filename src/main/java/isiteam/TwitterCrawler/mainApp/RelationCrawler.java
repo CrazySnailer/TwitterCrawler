@@ -237,6 +237,10 @@ public class RelationCrawler {
 		            	
 		            }//end else
 		            
+		           }catch(Exception ote){
+		        	   
+		        	   log.error("Relation Crawler Other ERROR!"+ote.getMessage());  
+		        	   
 		           }//End Catch
 				
 			}

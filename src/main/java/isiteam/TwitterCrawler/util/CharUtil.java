@@ -120,6 +120,37 @@ public class CharUtil {
 		return pattern.matcher(str.trim()).find();
 	}
 	
+	public static boolean isJapanese(String str) {
+		
+	
+		if (str == null) {
+			return false;
+		}
+		
+		return (str.matches("[\\u4e00-\\u9fa5]"))||(str.matches("[\\uff61-\\uff9f]"));
+	}
+	
+
+   public static float JapanesePercent(String str){
+			
+			if(str==null){
+				return 0;
+			}
+			
+//			System.out.println(str+"  "+str.length());
+			
+			char[] charArray=str.toCharArray();
+			float percent=0;
+			for(int i=0;i<charArray.length;i++){
+				char c = charArray[i];
+				
+				if (isJapaneseByREG(String.valueOf(c))) {
+					percent++;
+				}			
+			}
+			
+			return percent/charArray.length;
+		}
 	
 
 	/**
@@ -149,10 +180,14 @@ public class CharUtil {
 		
 		
 		String str="Writer, Freelancer, Planning officer";
+		String Text = "ニュースに関して「何か言わなくちゃいけない」という強迫観念が人をゲスな言葉へと走らせるのだと思う。事実は事実として何も言わずにただ受け止めるべきである。@daofeichang @aiww @fakecase 你的邮票怎么比我多不少？";
 		
-		System.out.println(ChinesePercent(str));
+		String Text1 = "ニュースに関して「何か言わなくちゃいけない」という強迫観念が人をゲスな言葉へと走らせるのだと思う。事実は事実として何も言わずにただ受け止めるべきである。@daofeichang @aiww @fakecase 你的邮票怎么比我多不少？";
 		
-		System.out.println(isJapaneseByREG(""));
+		
+		System.out.println(JapanesePercent(Text));
+		
+		System.out.println(isJapaneseByREG(Text));
 		
 	}//end main
 

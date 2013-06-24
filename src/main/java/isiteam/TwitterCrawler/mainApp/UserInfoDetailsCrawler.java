@@ -286,7 +286,11 @@ public class UserInfoDetailsCrawler {
 		            }//end else
 		            
 		            
-		           }//end Catch
+		           }catch(Exception ote){
+		        	   
+		        	   log.error("UserInfoDetails Crawler Other ERROR!"+ote.getMessage());  
+		        	   
+		           }//End Catch
 
 				
 			}//  End While
