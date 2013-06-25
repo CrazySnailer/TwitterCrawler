@@ -247,7 +247,7 @@
                            -->
                             <classpathPrefix>lib/</classpathPrefix>
                             <!-- Specifies the main class of the application -->
-                            <mainClass>isiteam.TwitterCrawler.mainApp.UserInfoDetailsCrawler</mainClass>
+                            <mainClass>isiteam.TwitterCrawler.mainApp.RelationCrawler</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
