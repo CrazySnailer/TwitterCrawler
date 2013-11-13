@@ -55,7 +55,7 @@ public final class GetRetweets {
 				"1346773026-x9FAnE5qFB3xjm47OU2puDSQiduMS7WDc3fdUX7",
 				"EOQC5Ejfx8CVy4y1ZBFgQbrSaQltsesULNm0rNHPDQ");
 		PropertyConfiguration conf = new PropertyConfiguration(props);
-        System.out.println("Showing up to 100 of the first retweets of the status id - [" + args[0] + "].");
+        //System.out.println("Showing up to 100 of the first retweets of the status id - [" + args[0] + "].");
         try {
         	Twitter twitter = new TwitterFactory(conf).getInstance(token);
             List<Status> statuses = twitter.getRetweets(1346773026);

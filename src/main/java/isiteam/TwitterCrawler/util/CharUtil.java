@@ -110,6 +110,26 @@ public class CharUtil {
 		return pattern.matcher(str.trim()).find();
 	}
 	
+	public static boolean isKoreaByREG(String str) {
+		
+		
+		if (str == null) {
+			return false;
+		}
+		
+	/*	Pattern pattern1 = Pattern.compile("[\\x3130-\\x318F]+");
+		Pattern pattern2 = Pattern.compile("[\\xAC00-\\xD7A3]+");
+	//	Pattern pattern3 = Pattern.compile("[\\u9fa5-\\xD7A3]+");
+		
+		
+		return (pattern1.matcher(str.trim()).find())||(pattern2.matcher(str.trim()).find());
+		
+		*/
+		
+		Pattern pattern =  Pattern.compile("[가-힣]+");
+		
+		return pattern.matcher(str.trim()).find();
+	}
 	
 	//
 	public static boolean isJapaneseByREG(String str) {
@@ -119,17 +139,6 @@ public class CharUtil {
 		Pattern pattern = Pattern.compile("[\\u0800-\\u4e00]+");
 		return pattern.matcher(str.trim()).find();
 	}
-	
-	public static boolean isJapanese(String str) {
-		
-	
-		if (str == null) {
-			return false;
-		}
-		
-		return (str.matches("[\\u4e00-\\u9fa5]"))||(str.matches("[\\uff61-\\uff9f]"));
-	}
-	
 
    public static float JapanesePercent(String str){
 			
@@ -182,12 +191,23 @@ public class CharUtil {
 		String str="Writer, Freelancer, Planning officer";
 		String Text = "ニュースに関して「何か言わなくちゃいけない」という強迫観念が人をゲスな言葉へと走らせるのだと思う。事実は事実として何も言わずにただ受け止めるべきである。@daofeichang @aiww @fakecase 你的邮票怎么比我多不少？";
 		
-		String Text1 = "ニュースに関して「何か言わなくちゃいけない」という強迫観念が人をゲスな言葉へと走らせるのだと思う。事実は事実として何も言わずにただ受け止めるべきである。@daofeichang @aiww @fakecase 你的邮票怎么比我多不少？";
+		String Text1 = "バリンーホウ御宅，モンスターハンターポータブルシリーズ死忠，爱科学，旁观者~살 ︴96라인 ︴카톡 ︴ 말레이시아 사람 ︴INSTAGRAM/카톡: akiyoseob";
+		String Text2 = "영원히 정민도련님만 따를거에요";
 		
+		//17살 ︴96라인 ︴카톡 ︴ 말레이시아 사람 ︴INSTAGRAM/카톡: akiyoseob
+		
+		//日文平假名：3040-309F
+		//日文片假名：30A0-30FF
+		//日文片假名拼音扩展：31F0-31FF
+		//[\\u0800-\\u4e00]
 		
 		System.out.println(JapanesePercent(Text));
 		
-		System.out.println(isJapaneseByREG(Text));
+		System.out.println(isJapaneseByREG(Text1));
+		
+		System.out.println(isKoreaByREG(Text1));
+		
+		System.out.println(isKoreaByREG(Text2));
 		
 	}//end main
 

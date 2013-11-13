@@ -13,6 +13,7 @@
 package isiteam.TwitterCrawler.database.dao.impl;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -142,8 +143,26 @@ public class SeedsQueueDaoImpl implements SeedsQueueDao {
 				
 				return list;
 			}else{//没有取到数据
-				//需将所有种子节点的isUserStatus重新置0，后取种子节点
 				
+				try{
+					//获取系统当前时间
+					Date   now   =   new   Date();
+					now.setHours(14);
+					now.setMinutes(0);
+					now.setSeconds(0);
+					
+					long interval=now.getTime()-System.currentTimeMillis()+24*3600*1000;
+					log.info("getSeedsQueueByisUserInfo Thread Sleep :"+interval/1000/60/60+" hours");
+					
+					Thread.sleep(interval);
+					
+					
+				}catch(Exception ex){
+					log.error("Thread sleep ERROR！"+ex.getMessage());
+				}
+				
+				
+				//需将所有种子节点的isUserStatus重新置0，后取种子节点				
 				getHibernateTemplate().execute(new HibernateCallback<Object>() {
 		        	@Override
 					public Object doInHibernate(Session session)

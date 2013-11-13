@@ -72,11 +72,11 @@ public class FileUtil {
     
     /** 
      * 在文档后附加内容 
-     * @param textName 
-     * @param date 
+     * @param fileName 
+     * @param content 
      * @return 
      */  
-    public static boolean appendText(String textName,String date){  
+    public static boolean appendText(String fileName,String content){  
         boolean flag=false;  
         File filePath=new File(textPath);  
         if(!filePath.exists()){  
@@ -84,8 +84,8 @@ public class FileUtil {
         }  
         
         try {  
-            FileWriter fw =new FileWriter(textPath+File.separator+textName,true);  
-            fw.append(date+System.getProperty( "line.separator" ));  
+            FileWriter fw =new FileWriter(textPath+File.separator+fileName,true);  
+            fw.append(content+System.getProperty( "line.separator" ));  
             flag=true;  
             if(fw!=null)  
                 fw.close();  

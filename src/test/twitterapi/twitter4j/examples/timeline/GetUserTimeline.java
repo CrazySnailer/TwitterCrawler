@@ -42,12 +42,12 @@ public class GetUserTimeline {
          props.put(PropertyConfiguration.HTTP_PROXY_HOST, "127.0.0.1");
  		props.put(PropertyConfiguration.HTTP_PROXY_PORT, "8087");
  		props.put(PropertyConfiguration.OAUTH_CONSUMER_KEY,
- 				"eEKgNmj5LZM1Y0s9w256A");
+ 				"PUrgpzGjVb8bBlj5THzzTw");
  		props.put(PropertyConfiguration.OAUTH_CONSUMER_SECRET,
- 				"IZzKrkFVd2dsJkaKQCUFA5vHFI8cDjthj7hccXnM");
+ 				"MmfW4bqClQDX2BAarc2B0dctVHK9Fm8BcIiiz4Vf4");
  		AccessToken token = new AccessToken(
- 				"1346773026-x9FAnE5qFB3xjm47OU2puDSQiduMS7WDc3fdUX7",
- 				"EOQC5Ejfx8CVy4y1ZBFgQbrSaQltsesULNm0rNHPDQ");
+ 				"393264915-y0shGxOSWHPid1QAMveVMefef322rp9Q91JlTV9A",
+ 				"kHaTs1fPmjNkjzUGIRSsgU9WZnjXVZItSxFaIr31I");
  		PropertyConfiguration conf = new PropertyConfiguration(props);
         Twitter twitter = new TwitterFactory(conf).getInstance(token);
         try {

@@ -61,6 +61,11 @@ public class TweetInfoDaoImpl implements TweetInfoDao {
 			public Object doInHibernate(Session session)
 					throws HibernateException, SQLException {
 			       for (int i = 0; i < tweetInfoList.size(); i++) {  
+			    	//   writeHase();
+			    	   // 写HABSE
+			    	   
+			    	   
+			    	   
 	                    try {
 							session.save(tweetInfoList.get(i));
 						} catch (Exception e1) {

@@ -153,7 +153,7 @@ public class UserInfoDetailsCrawler {
 						isChinese=false;
 						try {
 							
-							if(CharUtil.ChinesePercent(user.getStatus().getText())>0.6){
+							if(CharUtil.ChinesePercent(user.getStatus().getText())>0.6&&!CharUtil.isChineseByREG(user.getStatus().getText())&&!CharUtil.isKoreaByREG(user.getStatus().getText())){
 								isChinese=true;
 							}
 						} catch (Exception e1) {
@@ -161,7 +161,7 @@ public class UserInfoDetailsCrawler {
 							//e1.printStackTrace();							
 						}
 						
-	                    if((isChinese||user.getLang().startsWith("zh-")||CharUtil.ChinesePercent(user.getDescription())>0.6)&&!user.getLang().startsWith("ja")){
+	                    if((isChinese||user.getLang().startsWith("zh-")||CharUtil.ChinesePercent(user.getDescription())>0.6)&&!user.getLang().startsWith("ja")&&!CharUtil.isChineseByREG(user.getDescription())&&!CharUtil.isKoreaByREG(user.getDescription())){
 	                    	//为中文用户
 	                    	UserInfo userInfo=new UserInfo();
 	    					
@@ -200,7 +200,7 @@ public class UserInfoDetailsCrawler {
 							
 							userInfo.setInsertTime(new Timestamp(System.currentTimeMillis()));
 						
-							//加入对列之前，看看数据库有没有
+							   //加入对列之前，看看数据库有没有
 							   if (!userInfoDao.getIsExistUserInfo(userInfo)){
 								   UserInfoList.add(userInfo);
 							   }
